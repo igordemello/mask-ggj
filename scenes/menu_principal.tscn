@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c23r4dcosmfho"]
+
+[ext_resource type="Script" uid="uid://baj75vyq800eg" path="res://scenes/menu_principal.gd" id="1_i85hu"]
+
+[node name="MenuPrincipal" type="Control" unique_id=272785725]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i85hu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=220686710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1663743, 0.1663743, 0.1663743, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449285835]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=682880135]
+layout_mode = 2
+text = "Candidatar-se"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=337384789]
+layout_mode = 2
+text = "Sair"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_botao_sair_pressed"]

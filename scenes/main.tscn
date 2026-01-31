@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://gq3w65tcvab4" path="res://script/crowd_field.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c7tbdhdw6o63n" path="res://scenes/crowd_agent.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cuqhye63o2nok" path="res://scenes/ui_main.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://c23r4dcosmfho" path="res://scenes/menu_principal.tscn" id="7_o6xl0"]
 
 [node name="main" type="Node2D" unique_id=1703749042]
 
@@ -30,3 +31,5 @@ color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(358, 341, 365, 182, 1549, 189, 1556, 648, 1553, 893, 351, 883, 355, 400, 40, 210, 54, 997, 724, 1045, 1715, 1038, 1863, 921, 1808, 123, 1753, 41, 797, 10, 51, 103)
 
 [node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_tefeu")]
+
+[node name="MenuPrincipal" parent="." unique_id=272785725 instance=ExtResource("7_o6xl0")]
