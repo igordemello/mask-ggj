@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b3apjff05jw3y" path="res://Sprites/Vida/vidaCheia.png" id="1_pir4a"]
 [ext_resource type="Texture2D" uid="uid://c0olmm7usp4p5" path="res://Sprites/Vida/vidaVazia.png" id="2_e7ikl"]
 [ext_resource type="Texture2D" uid="uid://ds8s0pvlv3yqe" path="res://Sprites/Barras/eticaBoa.png" id="4_d8d52"]
+[ext_resource type="Script" uid="uid://ce0c867h0npe0" path="res://script/barra_etica.gd" id="4_ex8sk"]
+[ext_resource type="Texture2D" uid="uid://lyjwx31q3gel" path="res://Sprites/Barras/barracheiadotamanhocerto.png" id="5_06xbh"]
 [ext_resource type="Texture2D" uid="uid://br7lu2yox1xy" path="res://Sprites/Barras/eticaNeutra.png" id="5_lbldr"]
 [ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Barras/eticaRuim.png" id="6_lbldr"]
 [ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Barras/eticaVazia.png" id="7_vsg1l"]
@@ -193,8 +195,9 @@ animations = [{
 }]
 
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
+metadata/_edit_vertical_guides_ = [32.0]
 
-[node name="Barras" type="Control" parent="." unique_id=261720633]
+[node name="Barras_martelos" type="Control" parent="." unique_id=261720633]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,27 +207,40 @@ grow_vertical = 2
 size_flags_vertical = 4
 script = ExtResource("1_e7ikl")
 
-[node name="martelo_1" type="AnimatedSprite2D" parent="Barras" unique_id=1923647365]
-position = Vector2(43, 162)
-scale = Vector2(2, 2)
+[node name="martelo_1" type="AnimatedSprite2D" parent="Barras_martelos" unique_id=1923647365]
+position = Vector2(59, 162)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_7u1yg")
 animation = &"martelo_levantado"
 
-[node name="martelo_2" type="AnimatedSprite2D" parent="Barras" unique_id=1132208953]
-position = Vector2(126, 162)
-scale = Vector2(2, 2)
+[node name="martelo_2" type="AnimatedSprite2D" parent="Barras_martelos" unique_id=1132208953]
+position = Vector2(59, 232)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_7u1yg")
 animation = &"martelo_levantado"
 
-[node name="martelo_3" type="AnimatedSprite2D" parent="Barras" unique_id=187941327]
-position = Vector2(205, 162)
-scale = Vector2(2, 2)
+[node name="martelo_3" type="AnimatedSprite2D" parent="Barras_martelos" unique_id=187941327]
+position = Vector2(59, 302.00003)
+scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_7u1yg")
 animation = &"martelo_levantado"
 
-[node name="barra_fundo" type="Sprite2D" parent="." unique_id=1661614739]
+[node name="barra_etica" type="Node2D" parent="." unique_id=734695209]
+position = Vector2(177, 65)
+scale = Vector2(5, 5)
+script = ExtResource("4_ex8sk")
+
+[node name="barra_fundo" type="Sprite2D" parent="barra_etica" unique_id=1661614739]
 texture = ExtResource("7_vsg1l")
 
-[node name="barra_cima" type="AnimatedSprite2D" parent="." unique_id=80083429]
+[node name="TextureProgressBar" type="TextureProgressBar" parent="barra_etica" unique_id=387811000]
+offset_left = -28.0
+offset_top = -2.0
+offset_right = 28.0
+offset_bottom = 38.0
+value = 100.0
+texture_progress = ExtResource("5_06xbh")
+
+[node name="barra_cima" type="AnimatedSprite2D" parent="barra_etica" unique_id=80083429]
 sprite_frames = SubResource("SpriteFrames_fj2ak")
 animation = &"boa"
