@@ -9,8 +9,7 @@ extends Node2D
 
 @export var neighbor_radius := 20.0
 
-@export var dissipate_radius := 48.0
-@export var dissipate_count := 6
+@export var dissipate_radius := 64.0
 
 var agents: Array = []
 
@@ -78,13 +77,7 @@ func on_player_damaged():
 
 
 func dissipate_near_player():
-	var removed := 0
-
 	for a in agents:
-		if removed >= dissipate_count:
-			break
-
 		if a.global_position.distance_to(player.global_position) <= dissipate_radius:
 			agents.erase(a)
-			a.queue_free()
-			removed += 1
+			a.dissipate(player.global_position)

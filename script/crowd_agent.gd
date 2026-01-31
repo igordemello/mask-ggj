@@ -8,6 +8,8 @@ var active := false
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @export var rotation_speed := 8.0
 
+var dying := false
+
 func _physics_process(delta):
 	if not active:
 		return
@@ -33,3 +35,21 @@ func apply_separation(neighbors: Array):
 			force += diff.normalized() * (1.0 - dist / separation_radius)
 	
 	velocity += force * separation_strength
+
+
+func dissipate(from_position: Vector2):
+	if dying:
+		return
+
+	dying = true
+	set_physics_process(false)
+
+	var dir := (global_position - from_position).normalized()
+	if dir == Vector2.ZERO:
+		dir = Vector2.UP
+
+	global_position += dir * 6
+
+	var tween := create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.15)
+	tween.tween_callback(queue_free)
