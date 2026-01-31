@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bmcw0ya4fudbh"]
+
+[ext_resource type="Script" uid="uid://dmbg7nvsn205a" path="res://script/player.gd" id="1_fvtld"]
+[ext_resource type="Texture2D" uid="uid://d15ix8m4e63vn" path="res://scene/dog.jpg" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://bmsogufvhpyyu" path="res://scene/dog2.jpg" id="2_fvtld"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo3ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hjaqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fvtld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_hjaqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fvtld")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjaqi"]
+size = Vector2(230.60869, 211)
+
+[node name="player" type="CharacterBody2D" unique_id=727039025]
+script = ExtResource("1_fvtld")
+
+[node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1322198444]
+position = Vector2(-1, -4)
+scale = Vector2(1.0147059, 1)
+sprite_frames = SubResource("SpriteFrames_xo3ru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495327261]
+scale = Vector2(1.0147059, 1)
+shape = SubResource("RectangleShape2D_hjaqi")
+one_way_collision_margin = 0.0
