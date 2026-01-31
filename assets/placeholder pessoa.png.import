@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://episscpae5ng"
-path="res://.godot/imported/placeholder pessoa.png-e008dc8f68fb6cabcfc23f30169bcef9.ctex"
+path="res://.godot/imported/placeholder pessoa.png-59dc9de11e4e25567466bd9e3cae1ee4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/placeholder pessoa.png"
-dest_files=["res://.godot/imported/placeholder pessoa.png-e008dc8f68fb6cabcfc23f30169bcef9.ctex"]
+source_file="res://assets/placeholder pessoa.png"
+dest_files=["res://.godot/imported/placeholder pessoa.png-59dc9de11e4e25567466bd9e3cae1ee4.ctex"]
 
 [params]
 

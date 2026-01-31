@@ -1,45 +1,71 @@
 [gd_scene format=3 uid="uid://bmcw0ya4fudbh"]
 
 [ext_resource type="Script" uid="uid://dmbg7nvsn205a" path="res://script/player.gd" id="1_fvtld"]
-[ext_resource type="Texture2D" uid="uid://d15ix8m4e63vn" path="res://Sprites/dog.jpg" id="1_hjaqi"]
-[ext_resource type="Texture2D" uid="uid://bmsogufvhpyyu" path="res://Sprites/dog2.jpg" id="2_fvtld"]
+[ext_resource type="Texture2D" uid="uid://bxljavtkc3b7" path="res://assets/player-run.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
+atlas = ExtResource("2_g2els")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuyoq"]
+atlas = ExtResource("2_g2els")
+region = Rect2(192, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xo3ru"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_hjaqi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_fvtld")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_hjaqi")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_fvtld")
+"texture": SubResource("AtlasTexture_qhqgy")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"mask",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qlg0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuyoq")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hjaqi"]
-size = Vector2(229.6232, 201)
+[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
+radius = 8.0
 
 [node name="player" type="CharacterBody2D" unique_id=727039025]
 script = ExtResource("1_fvtld")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1322198444]
-position = Vector2(-5.5, 0.49999237)
+position = Vector2(-4.7683716e-07, -8.940697e-08)
 scale = Vector2(0.38071895, 0.32843137)
 sprite_frames = SubResource("SpriteFrames_xo3ru")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495327261]
-position = Vector2(-5.500002, 0.5)
-scale = Vector2(1.0147059, 1)
-shape = SubResource("RectangleShape2D_hjaqi")
-one_way_collision_margin = 0.0
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
 position_smoothing_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688721814]
+shape = SubResource("CircleShape2D_g2els")
