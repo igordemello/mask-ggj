@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cnkrv4bsipcgp"]
+
+[ext_resource type="PackedScene" uid="uid://bmcw0ya4fudbh" path="res://scenes/player.tscn" id="1_pnm1y"]
+[ext_resource type="PackedScene" uid="uid://dp2t2f41nu2o2" path="res://scenes/enemy_spawner.tscn" id="2_1qck2"]
+
+[node name="cenario1" type="Node2D" unique_id=1703749042]
+
+[node name="player" parent="." unique_id=727039025 instance=ExtResource("1_pnm1y")]
+position = Vector2(580, 332)
+
+[node name="EnemySpawner" parent="." unique_id=626519724 node_paths=PackedStringArray("target") instance=ExtResource("2_1qck2")]
+position = Vector2(1074, 37)
+target = NodePath("../player")

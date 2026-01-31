@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmsogufvhpyyu"
-path="res://.godot/imported/dog2.jpg-05854cc8fe14272f15662efe6cf2d72e.ctex"
+uid="uid://episscpae5ng"
+path="res://.godot/imported/placeholder pessoa.png-e008dc8f68fb6cabcfc23f30169bcef9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scene/dog2.jpg"
-dest_files=["res://.godot/imported/dog2.jpg-05854cc8fe14272f15662efe6cf2d72e.ctex"]
+source_file="res://Sprites/placeholder pessoa.png"
+dest_files=["res://.godot/imported/placeholder pessoa.png-e008dc8f68fb6cabcfc23f30169bcef9.ctex"]
 
 [params]
 

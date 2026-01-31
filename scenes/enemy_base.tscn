@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dkpfnb6flbk3q"]
+
+[ext_resource type="Script" uid="uid://q6vkkvmvsdeu" path="res://script/enemySeeker.gd" id="1_edvsq"]
+[ext_resource type="Texture2D" uid="uid://episscpae5ng" path="res://Sprites/placeholder pessoa.png" id="2_8njqh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oscad"]
+size = Vector2(178, 109)
+
+[node name="enemyBase" type="Area2D" unique_id=1638408408]
+script = ExtResource("1_edvsq")
+
+[node name="Polygon2D" type="Polygon2D" parent="." unique_id=1827706481]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2100452202]
+texture = ExtResource("2_8njqh")
+region_enabled = true
+region_rect = Rect2(25.300018, 58.9, 177.6, 110.39999)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1323975642]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_oscad")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
