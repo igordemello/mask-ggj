@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://d13lgs1hmakd3"]
+
+[ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://menuMascaras.gd" id="1_es1yg"]
+
+[node name="Control" type="Control" unique_id=272783749]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_es1yg")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1725796738]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=625530574]
+polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1496623401]
+color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
+
+[node name="Area2D2" type="Area2D" parent="." unique_id=1120872937]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2" unique_id=947769733]
+polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D2" unique_id=2052878441]
+color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
+
+[node name="Area2D3" type="Area2D" parent="." unique_id=1401744392]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3" unique_id=1684465159]
+polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D3" unique_id=1767748042]
+color = Color(0.659, 0.659, 0.659, 0.996)
+polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
+
+[node name="Area2D4" type="Area2D" parent="." unique_id=280564895]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D4" unique_id=732086347]
+polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D4" unique_id=1081167690]
+color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
+
+[node name="Area2D5" type="Area2D" parent="." unique_id=731630239]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D5" unique_id=1482678029]
+polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D5" unique_id=162524785]
+color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
