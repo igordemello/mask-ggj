@@ -7,81 +7,91 @@
 [ext_resource type="Texture2D" uid="uid://damj4culqd1kn" path="res://Sprites/Mascaras/Populismo-1.png" id="5_k8d3x"]
 [ext_resource type="Texture2D" uid="uid://8x33yjuaog5h" path="res://icon.svg" id="6_rjju5"]
 
-[node name="Control" type="Control" unique_id=272783749]
+[node name="Control" type="CanvasLayer" unique_id=1992427104]
+
+[node name="Control" type="Control" parent="." unique_id=634843357]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+anchors_preset = 0
 script = ExtResource("1_es1yg")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1725796738]
+[node name="Area2D" type="Area2D" parent="Control" unique_id=1725796738]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D" unique_id=625530574]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/Area2D" unique_id=625530574]
 polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1496623401]
+[node name="Polygon2D" type="Polygon2D" parent="Control/Area2D" unique_id=1496623401]
 color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=290125436]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D" unique_id=290125436]
 position = Vector2(799, 801)
 scale = Vector2(5, 5)
 texture = ExtResource("2_m7knh")
 
-[node name="Area2D2" type="Area2D" parent="." unique_id=1120872937]
+[node name="Area2D2" type="Area2D" parent="Control" unique_id=1120872937]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2" unique_id=947769733]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/Area2D2" unique_id=947769733]
 polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D2" unique_id=2052878441]
+[node name="Polygon2D" type="Polygon2D" parent="Control/Area2D2" unique_id=2052878441]
 color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=980373134]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D2" unique_id=980373134]
 position = Vector2(1097, 802)
 scale = Vector2(5, 5)
 texture = ExtResource("3_rjju5")
 
-[node name="Area2D3" type="Area2D" parent="." unique_id=1401744392]
+[node name="Area2D3" type="Area2D" parent="Control" unique_id=1401744392]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D3" unique_id=1684465159]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/Area2D3" unique_id=1684465159]
 polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D3" unique_id=1767748042]
+[node name="Polygon2D" type="Polygon2D" parent="Control/Area2D3" unique_id=1767748042]
 color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D3" unique_id=1493034854]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D3" unique_id=1493034854]
 position = Vector2(1321, 532)
 scale = Vector2(5, 5)
 texture = ExtResource("4_0e18d")
 
-[node name="Area2D4" type="Area2D" parent="." unique_id=280564895]
+[node name="Area2D4" type="Area2D" parent="Control" unique_id=280564895]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D4" unique_id=732086347]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/Area2D4" unique_id=732086347]
 polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D4" unique_id=1081167690]
+[node name="Polygon2D" type="Polygon2D" parent="Control/Area2D4" unique_id=1081167690]
+position = Vector2(-2, 1)
 color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D4" unique_id=2003434744]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D4" unique_id=2003434744]
 position = Vector2(967, 271)
 scale = Vector2(5, 5)
 texture = ExtResource("5_k8d3x")
 
-[node name="Area2D5" type="Area2D" parent="." unique_id=731630239]
+[node name="Area2D5" type="Area2D" parent="Control" unique_id=731630239]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D5" unique_id=1482678029]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Control/Area2D5" unique_id=1482678029]
 polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D5" unique_id=162524785]
+[node name="Polygon2D" type="Polygon2D" parent="Control/Area2D5" unique_id=162524785]
 color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D5" unique_id=1016957795]
+[node name="Sprite2D" type="Sprite2D" parent="Control/Area2D5" unique_id=1016957795]
 position = Vector2(567, 554)
 texture = ExtResource("6_rjju5")
+
+[node name="Polygon2D" type="Polygon2D" parent="Control" unique_id=1513077257]
+position = Vector2(960.5037, 540.5)
+scale = Vector2(2.0050128, 0.9955753)
+polygon = PackedVector2Array(99, 113, -100.5, 113, -100.5, -113, 99, -113)
+
+[node name="Label" type="Label" parent="Control/Polygon2D" unique_id=467209248]
+offset_left = -100.00122
+offset_top = -110.99109
+offset_right = 98.50122
+offset_bottom = 113.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
