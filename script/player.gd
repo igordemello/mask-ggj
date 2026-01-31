@@ -8,7 +8,7 @@ var input: Vector2
 
 @onready var sprite: AnimatedSprite2D = $sprite
 
-@export var invincibility_time := 0.8
+@export var invincibility_time := 0.5
 var can_take_damage := true
 
 signal damaged
@@ -45,21 +45,22 @@ func take_damage():
 	if not can_take_damage:
 		return
 
+	if GameController.vidas == 0:
+		print("morreu saporra")
+		return
+
 	GameController.vidas -= 1
 	print("Player tomou dano -1 coração")
 
 	can_take_damage = false
 	emit_signal("damaged")
 
-	if GameController.vidas == 0:
-		print("morreu saporra")
-		get_tree().reload_current_scene()
+	
 
 	await get_tree().create_timer(invincibility_time).timeout
 	can_take_damage = true
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	print("orgia")
 	if area.get_parent() is CharacterBody2D:
 		take_damage()
