@@ -24,12 +24,27 @@ var spatial_hash := {}
 var field_timer := 0.0
 @export var field_update_rate := 0.1
 
+@export var push_force: float = 200.0
+@export var push_range: float = 50.0
+@export var push_angle: float = 200.0
 
+@export var populismo_radius := 700.0
+@export var populismo_strength := 1600.0
+
+@export var polarizacao_strength := 90000.0
+@export var polarizacao_forward_strength := 20.0
 
 var current_mask := MaskController.MaskType.NONE
 
 func set_mask(mask: int):
 	current_mask = mask
+
+	if mask == MaskController.MaskType.POPULISMO:
+		apply_populismo_pulse()
+		
+	if mask == MaskController.MaskType.POLARIZACAO:
+		assign_polarization_sides()
+		disable_collisions_temporarily()
 
 func _ready():
 	spawn_initial_crowd()
@@ -59,28 +74,23 @@ func update_field():
 
 func apply_field_to_agents():
 	for a in agents:
-		match current_mask:
-			MaskController.MaskType.POPULISMO:
-				apply_populismo(a)
-			MaskController.MaskType.POLARIZACAO:
-				apply_polarizacao(a)
-			MaskController.MaskType.TECNICA:
-				apply_tecnica(a)
-		
 		var to_player = player.global_position - a.global_position
-		var dist = to_player.length()
+		var force := Vector2.ZERO
 
-		if dist < 24:
-			a.velocity = Vector2.ZERO
-			continue
+		# movimento base (não quebra nada)
+		if to_player.length() > 24:
+			force += to_player.normalized() * agent_speed
 
-		a.velocity = to_player.normalized() * agent_speed
-
+		# separação
 		var neighbors = get_neighbors(a)
 		if randf() < 0.4:
-			a.apply_separation(neighbors)
+			force += a.get_separation_force(neighbors)
 
-		a.velocity = a.velocity.limit_length(agent_speed)
+		# >>> POLARIZAÇÃO <<<
+		if current_mask == MaskController.MaskType.POLARIZACAO:
+			force += get_polarizacao_force(a)
+
+		a.velocity = force.limit_length(agent_speed)
 
 
 func get_neighbors(agent):
@@ -168,23 +178,60 @@ func rebuild_spatial_hash():
 		spatial_hash[cell].append(a)
 
 
-func apply_populismo(agent):
-	var dir = agent.global_position - player.global_position
-	if dir != Vector2.ZERO:
-		agent.velocity += dir.normalized() * 120
 
 
-func apply_tecnica(agent):
-	if randi() % 2 == 0:
-		agent.velocity *= 0.1
+func apply_populismo_pulse():
+	print("PULSO APLICADO")
 
+	for a in agents:
+		var diff = a.global_position - player.global_position
+		var dist = diff.length()
+
+		if dist == 0.0 or dist > populismo_radius:
+			continue
+
+		var falloff = 1.0 - (dist / populismo_radius)
+		var strength = populismo_strength * falloff
+
+		a.apply_knockback(diff, strength)
+
+
+func assign_polarization_sides():
+	for a in agents:
+		a.assign_polarization()
+
+
+func get_tecnica_force(agent) -> Vector2:
+	return -agent.velocity * 0.6
 
 var polarization_points := [
 	Vector2(200, 0),
 	Vector2(-200, 0)
 ]
 
-func apply_polarizacao(agent):
-	var target = polarization_points[randi() % 2]
-	var dir = (player.global_position + target) - agent.global_position
-	agent.velocity = dir.normalized() * agent_speed
+
+func get_polarizacao_force(agent) -> Vector2:
+	# direção até o player
+	var to_player = (player.global_position - agent.global_position).normalized()
+
+	# vetor lateral (perpendicular)
+	var lateral := Vector2(-to_player.y, to_player.x)
+
+	# escolhe lado
+	lateral *= agent.polarization_side
+
+	return (lateral * polarizacao_strength) + (to_player * polarizacao_forward_strength)
+
+
+func disable_collisions_temporarily():
+	for a in agents:
+		a.disable_agent_collision()
+
+	var timer := get_tree().create_timer(10.0)
+	timer.timeout.connect(enable_collisions_back)
+	
+	
+func enable_collisions_back():
+	for a in agents:
+		if is_instance_valid(a):
+			a.enable_agent_collision()

@@ -136,7 +136,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"boa",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -168,7 +168,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"neutra",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,7 +191,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"ruim",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
@@ -243,4 +243,4 @@ texture_progress = ExtResource("5_06xbh")
 
 [node name="barra_cima" type="AnimatedSprite2D" parent="barra_etica" unique_id=80083429]
 sprite_frames = SubResource("SpriteFrames_fj2ak")
-animation = &"boa"
+animation = &"ruim"

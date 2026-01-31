@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://dawj2qvuunnyd"]
 
-[ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://menuMascaras.gd" id="1_es1yg"]
+[ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://script/menuMascaras.gd" id="1_es1yg"]
 [ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="2_m7knh"]
 [ext_resource type="Texture2D" uid="uid://dk35i65scy3r4" path="res://Sprites/Mascaras/Polarização-1.png" id="3_rjju5"]
 [ext_resource type="Texture2D" uid="uid://bf4wl1v0xdesm" path="res://Sprites/Mascaras/Bastidores.png" id="4_0e18d"]
 [ext_resource type="Texture2D" uid="uid://damj4culqd1kn" path="res://Sprites/Mascaras/Populismo-1.png" id="5_k8d3x"]
+[ext_resource type="Texture2D" uid="uid://cabt82v3bjtwq" path="res://Sprites/Mascaras/Tecnica.png" id="6_4pg8y"]
 [ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="7_0e18d"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k8d3x"]
@@ -91,7 +92,7 @@ polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
 [node name="Sprite2D" type="Sprite2D" parent="Control/Area2D5" unique_id=1016957795]
 position = Vector2(567, 532)
 scale = Vector2(5, 5)
-texture = ExtResource("5_k8d3x")
+texture = ExtResource("6_4pg8y")
 
 [node name="caixaDeInfo" type="Control" parent="Control" unique_id=740728548]
 anchors_preset = 0
