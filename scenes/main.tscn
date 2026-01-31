@@ -25,4 +25,8 @@ dissipate_radius = 130.0
 [node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1599278310]
 script = ExtResource("3_sugp2")
 
+[node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=1132513284]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(358, 341, 365, 182, 1549, 189, 1556, 648, 1553, 893, 351, 883, 355, 400, 40, 210, 54, 997, 724, 1045, 1715, 1038, 1863, 921, 1808, 123, 1753, 41, 797, 10, 51, 103)
+
 [node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_tefeu")]

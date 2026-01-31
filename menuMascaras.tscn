@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d13lgs1hmakd3"]
+[gd_scene format=3 uid="uid://dawj2qvuunnyd"]
 
 [ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://menuMascaras.gd" id="1_es1yg"]
 [ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="2_m7knh"]

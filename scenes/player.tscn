@@ -74,17 +74,15 @@ sprite_frames = SubResource("SpriteFrames_xo3ru")
 animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
+zoom = Vector2(1.685, 1.685)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688721814]
-visible = false
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1223758974]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1866824062]
-visible = false
 shape = SubResource("CircleShape2D_qhqgy")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]
