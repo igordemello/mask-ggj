@@ -42,6 +42,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3p8t"]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w8vvl"]
+radius = 18.0
+
 [node name="CrowdAgent" type="CharacterBody2D" unique_id=1054907610]
 script = ExtResource("1_ptrki")
 
@@ -51,3 +54,8 @@ autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83414158]
 shape = SubResource("CircleShape2D_u3p8t")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1380839514]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1002361787]
+shape = SubResource("CircleShape2D_w8vvl")

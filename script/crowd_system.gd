@@ -9,10 +9,14 @@ extends Node2D
 
 @export var neighbor_radius := 20.0
 
+@export var dissipate_radius := 48.0
+@export var dissipate_count := 6
+
 var agents: Array = []
 
 func _ready():
 	spawn_agents()
+	player.damaged.connect(on_player_damaged)
 
 func spawn_agents():
 	for i in agent_count:
@@ -67,3 +71,20 @@ func get_neighbors(agent):
 		if agent.global_position.distance_to(other.global_position) <= neighbor_radius:
 			result.append(other)
 	return result
+
+
+func on_player_damaged():
+	dissipate_near_player()
+
+
+func dissipate_near_player():
+	var removed := 0
+
+	for a in agents:
+		if removed >= dissipate_count:
+			break
+
+		if a.global_position.distance_to(player.global_position) <= dissipate_radius:
+			agents.erase(a)
+			a.queue_free()
+			removed += 1
