@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cd1576itq1e6q"]
+
+[ext_resource type="Script" uid="uid://dx1obik0orewq" path="res://script/tela_derrota.gd" id="1_6w31q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6w31q"]
+font_size = 80
+
+[node name="TelaDerrota" type="Control" unique_id=411182417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6w31q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=909633811]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.38134935, 0, 0.01762488, 1)
+
+[node name="Label" type="Label" parent="." unique_id=371403176]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -416.0
+offset_top = 250.0
+offset_right = 416.0
+offset_bottom = 360.0
+grow_horizontal = 2
+text = "Campanha Encerrada"
+label_settings = SubResource("LabelSettings_6w31q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1521346880]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -10.0
+offset_right = 4.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BotaoReiniciar" type="Button" parent="VBoxContainer" unique_id=2082114172]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+text = "Tentar Novamente"
+
+[node name="BotaoMenu" type="Button" parent="VBoxContainer" unique_id=862493953]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+text = "Menu Principal"
+
+[connection signal="pressed" from="VBoxContainer/BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/BotaoMenu" to="." method="_on_botao_menu_pressed"]

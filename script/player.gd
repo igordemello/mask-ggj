@@ -64,16 +64,23 @@ func take_damage():
 	if not can_take_damage:
 		return
 
-	if GameController.vidas == 0:
-		print("morreu saporra")
-		return
-
+	# Reduz a vida no controlador global
 	GameController.vidas -= 1
 	flash_white()
-	print("Player tomou dano -1 coração")
+	print("Player tomou dano. Vidas: ", GameController.vidas)
+
+	# Verifica se morreu
+	if GameController.vidas <= 0:
+		print("Morreu saporra")
+		# Chama a função de morrer que vamos criar no GameController
+		GameController.morrer("vida_0") 
+		return
 
 	can_take_damage = false
 	emit_signal("damaged")
+
+	await get_tree().create_timer(invincibility_time).timeout
+	can_take_damage = true
 
 	
 
