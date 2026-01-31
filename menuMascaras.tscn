@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://d13lgs1hmakd3"]
 
 [ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://menuMascaras.gd" id="1_es1yg"]
+[ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="2_m7knh"]
+[ext_resource type="Texture2D" uid="uid://dk35i65scy3r4" path="res://Sprites/Mascaras/Polarização-1.png" id="3_rjju5"]
+[ext_resource type="Texture2D" uid="uid://bf4wl1v0xdesm" path="res://Sprites/Mascaras/Bastidores.png" id="4_0e18d"]
+[ext_resource type="Texture2D" uid="uid://damj4culqd1kn" path="res://Sprites/Mascaras/Populismo-1.png" id="5_k8d3x"]
+[ext_resource type="Texture2D" uid="uid://8x33yjuaog5h" path="res://icon.svg" id="6_rjju5"]
 
 [node name="Control" type="Control" unique_id=272783749]
 layout_mode = 3
@@ -18,8 +23,13 @@ script = ExtResource("1_es1yg")
 polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1496623401]
-color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=290125436]
+position = Vector2(799, 801)
+scale = Vector2(5, 5)
+texture = ExtResource("2_m7knh")
 
 [node name="Area2D2" type="Area2D" parent="." unique_id=1120872937]
 
@@ -27,8 +37,13 @@ polygon = PackedVector2Array(960, 540, 0, 1080, 960, 1080)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D2" unique_id=2052878441]
-color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D2" unique_id=980373134]
+position = Vector2(1097, 802)
+scale = Vector2(5, 5)
+texture = ExtResource("3_rjju5")
 
 [node name="Area2D3" type="Area2D" parent="." unique_id=1401744392]
 
@@ -36,8 +51,13 @@ polygon = PackedVector2Array(960, 540, 1920, 1080, 960, 1080)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D3" unique_id=1767748042]
-color = Color(0.659, 0.659, 0.659, 0.996)
+color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D3" unique_id=1493034854]
+position = Vector2(1321, 532)
+scale = Vector2(5, 5)
+texture = ExtResource("4_0e18d")
 
 [node name="Area2D4" type="Area2D" parent="." unique_id=280564895]
 
@@ -45,8 +65,13 @@ polygon = PackedVector2Array(960, 540, 1920, 1080, 1920, 0)
 polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D4" unique_id=1081167690]
-color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D4" unique_id=2003434744]
+position = Vector2(967, 271)
+scale = Vector2(5, 5)
+texture = ExtResource("5_k8d3x")
 
 [node name="Area2D5" type="Area2D" parent="." unique_id=731630239]
 
@@ -54,5 +79,9 @@ polygon = PackedVector2Array(960, 540, 1920, 0, 0, 0)
 polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
 
 [node name="Polygon2D" type="Polygon2D" parent="Area2D5" unique_id=162524785]
-color = Color(0.6627451, 0.6627451, 0.6627451, 1)
+color = Color(0.66, 0.66, 0.66, 0.2)
 polygon = PackedVector2Array(960, 540, 0, 0, 0, 1080)
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D5" unique_id=1016957795]
+position = Vector2(567, 554)
+texture = ExtResource("6_rjju5")
