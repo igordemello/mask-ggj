@@ -1,11 +1,11 @@
 extends Control
 
 var cores_hover = {
-	"Area2D": Color(1, 0, 0, 0.5),
-	"Area2D2": Color(0, 1, 0, 0.5),
-	"Area2D3": Color(0, 0, 1, 0.5),
-	"Area2D4": Color(1, 1, 0, 0.5),
-	"Area2D5": Color(1, 0, 1, 0.5)
+	"Area2D": Color(1, 0, 0, 0.2),
+	"Area2D2": Color(0, 1, 0, 0.2),
+	"Area2D3": Color(0, 0, 1, 0.2),
+	"Area2D4": Color(1, 1, 0, 0.2),
+	"Area2D5": Color(1, 0, 1, 0.2)
 }
 
 func _ready():
@@ -29,7 +29,7 @@ func _on_area_mouse_exited(area_node):
 	Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 	var poly = area_node.get_node_or_null("Polygon2D")
 	if poly:
-		poly.color = Color(0.659, 0.659, 0.659, 0.996)
+		poly.color = Color(0.659, 0.659, 0.659, 0.2)
 func executar_acao(nome_do_botao):
 	match nome_do_botao:
 		"Area2D":
