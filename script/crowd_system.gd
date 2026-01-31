@@ -24,6 +24,13 @@ var spatial_hash := {}
 var field_timer := 0.0
 @export var field_update_rate := 0.1
 
+
+
+var current_mask := MaskController.MaskType.NONE
+
+func set_mask(mask: int):
+	current_mask = mask
+
 func _ready():
 	spawn_initial_crowd()
 	player.damaged.connect(on_player_damaged)
@@ -52,6 +59,14 @@ func update_field():
 
 func apply_field_to_agents():
 	for a in agents:
+		match current_mask:
+			MaskController.MaskType.POPULISMO:
+				apply_populismo(a)
+			MaskController.MaskType.POLARIZACAO:
+				apply_polarizacao(a)
+			MaskController.MaskType.TECNICA:
+				apply_tecnica(a)
+		
 		var to_player = player.global_position - a.global_position
 		var dist = to_player.length()
 
@@ -151,3 +166,25 @@ func rebuild_spatial_hash():
 		if not spatial_hash.has(cell):
 			spatial_hash[cell] = []
 		spatial_hash[cell].append(a)
+
+
+func apply_populismo(agent):
+	var dir = agent.global_position - player.global_position
+	if dir != Vector2.ZERO:
+		agent.velocity += dir.normalized() * 120
+
+
+func apply_tecnica(agent):
+	if randi() % 2 == 0:
+		agent.velocity *= 0.1
+
+
+var polarization_points := [
+	Vector2(200, 0),
+	Vector2(-200, 0)
+]
+
+func apply_polarizacao(agent):
+	var target = polarization_points[randi() % 2]
+	var dir = (player.global_position + target) - agent.global_position
+	agent.velocity = dir.normalized() * agent_speed

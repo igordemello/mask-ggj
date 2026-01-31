@@ -12,7 +12,15 @@ var input: Vector2
 @export var invincibility_time := 0.5
 var can_take_damage := true
 
+@onready var crowd_system := get_parent().get_node("CrowdSystem")
+
 signal damaged
+
+func _ready() -> void:
+	MaskController.mask_changed.connect(
+		crowd_system.set_mask
+	)
+
 
 func get_input():
 	input.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -41,6 +49,16 @@ func _physics_process(delta : float):
 			delta * ROTATION_SPEED
 		)
 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("mask_populismo"):
+		MaskController.equip_mask(MaskController.MaskType.POPULISMO)
+
+	if Input.is_action_just_pressed("mask_polarizacao"):
+		MaskController.equip_mask(MaskController.MaskType.POLARIZACAO)
+
+	if Input.is_action_just_pressed("mask_tecnica"):
+		MaskController.equip_mask(MaskController.MaskType.TECNICA)
 
 func take_damage():
 	if not can_take_damage:

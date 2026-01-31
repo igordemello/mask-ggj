@@ -10,6 +10,10 @@ var active := false
 
 var dying := false
 
+func _ready() -> void:
+	randomize()
+	sprite.play(str(randi_range(1, 3)))
+
 func _physics_process(delta):
 	if not active:
 		return
