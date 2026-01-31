@@ -19,6 +19,7 @@ scale = Vector2(4, 4)
 [node name="CrowdSystem" type="Node2D" parent="." unique_id=1915152276]
 script = ExtResource("3_jyhfs")
 agent_scene = ExtResource("4_tbgi4")
+dissipate_radius = 130.0
 
 [node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1599278310]
 script = ExtResource("3_sugp2")
