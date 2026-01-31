@@ -25,7 +25,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hjaqi"]
-size = Vector2(230.60869, 211)
+size = Vector2(229.6232, 201)
 
 [node name="player" type="CharacterBody2D" unique_id=727039025]
 script = ExtResource("1_fvtld")
@@ -36,6 +36,7 @@ scale = Vector2(0.38071895, 0.32843137)
 sprite_frames = SubResource("SpriteFrames_xo3ru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=495327261]
+position = Vector2(-5.500002, 0.5)
 scale = Vector2(1.0147059, 1)
 shape = SubResource("RectangleShape2D_hjaqi")
 one_way_collision_margin = 0.0
