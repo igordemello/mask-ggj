@@ -7,6 +7,8 @@ extends Node2D
 @onready var field := $CrowdField
 @onready var player := get_parent().get_node("player")
 
+@export var neighbor_radius := 20.0
+
 var agents: Array = []
 
 func _ready():
@@ -50,3 +52,18 @@ func apply_field_to_agents():
 			continue
 
 		a.velocity = to_player.normalized() * agent_speed
+
+		var neighbors = get_neighbors(a)
+		a.apply_separation(neighbors)
+
+		a.velocity = a.velocity.limit_length(agent_speed)
+
+
+func get_neighbors(agent):
+	var result := []
+	for other in agents:
+		if other == agent:
+			continue
+		if agent.global_position.distance_to(other.global_position) <= neighbor_radius:
+			result.append(other)
+	return result
