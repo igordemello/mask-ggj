@@ -96,3 +96,7 @@ func flash_white():
 		0.0,
 		0.4
 	)
+
+
+func _on_button_sair_pressed() -> void:
+	pass # Replace with function body.

@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://c23r4dcosmfho"]
+
+[ext_resource type="Script" uid="uid://baj75vyq800eg" path="res://scenes/menu_principal.gd" id="1_i85hu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_i85hu"]
+font_size = 64
+
+[node name="MenuPrincipal" type="Control" unique_id=272785725]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i85hu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=220686710]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1663743, 0.1663743, 0.1663743, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449285835]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -33.0
+offset_right = 58.0
+offset_bottom = 33.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=682880135]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Candidatar-se"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=337384789]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 2
+text = "Sair"
+
+[node name="Label" type="Label" parent="." unique_id=42619629]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 300.0
+offset_right = 192.0
+offset_bottom = 388.0
+grow_horizontal = 2
+text = "O Candidato"
+label_settings = SubResource("LabelSettings_i85hu")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_botao_sair_pressed"]
