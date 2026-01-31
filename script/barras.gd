@@ -13,11 +13,17 @@ func _process(delta: float) -> void:
 		martelo_1.play("martelo_levantado")
 		martelo_2.play("martelo_levantado")
 		martelo_3.play("martelo_batido")
+		martelo_3.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
 	elif GameController.vidas == 1:
 		martelo_1.play("martelo_levantado")
 		martelo_2.play("martelo_batido")
 		martelo_3.play("martelo_batido")
+		martelo_2.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
+		martelo_3.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
 	elif GameController.vidas < 1:
 		martelo_1.play("martelo_batido")
 		martelo_2.play("martelo_batido")
 		martelo_3.play("martelo_batido")
+		martelo_1.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
+		martelo_2.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
+		martelo_3.self_modulate = Color.from_hsv(0.0, 0.0, 0.66, 0.812)
