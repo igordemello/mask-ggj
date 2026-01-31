@@ -7,6 +7,7 @@ const ROTATION_SPEED := 8.0
 var input: Vector2
 
 @onready var sprite: AnimatedSprite2D = $sprite
+@onready var flash_material: ShaderMaterial = sprite.material
 
 @export var invincibility_time := 0.5
 var can_take_damage := true
@@ -50,6 +51,7 @@ func take_damage():
 		return
 
 	GameController.vidas -= 1
+	flash_white()
 	print("Player tomou dano -1 coração")
 
 	can_take_damage = false
@@ -64,3 +66,15 @@ func take_damage():
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is CharacterBody2D:
 		take_damage()
+
+
+func flash_white():
+	flash_material.set_shader_parameter("flash_strength", 1.0)
+
+	var tween := create_tween()
+	tween.tween_property(
+		flash_material,
+		"shader_parameter/flash_strength",
+		0.0,
+		0.4
+	)

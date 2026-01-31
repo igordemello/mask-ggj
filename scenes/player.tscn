@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://dmbg7nvsn205a" path="res://script/player.gd" id="1_fvtld"]
 [ext_resource type="Texture2D" uid="uid://bxljavtkc3b7" path="res://assets/player-run.png" id="2_g2els"]
+[ext_resource type="Shader" uid="uid://cc2a72pm3avt0" path="res://shaders/player_hit.gdshader" id="2_qhqgy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
+shader = ExtResource("2_qhqgy")
+shader_parameter/flash_strength = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
 atlas = ExtResource("2_g2els")
@@ -62,6 +67,7 @@ radius = 14.0
 script = ExtResource("1_fvtld")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1322198444]
+material = SubResource("ShaderMaterial_dqkch")
 position = Vector2(-4.7683716e-07, -8.940697e-08)
 scale = Vector2(0.38071895, 0.32843137)
 sprite_frames = SubResource("SpriteFrames_xo3ru")
@@ -71,11 +77,14 @@ animation = &"idle"
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688721814]
+visible = false
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="hitbox" type="Area2D" parent="." unique_id=1223758974]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" unique_id=1866824062]
+visible = false
 shape = SubResource("CircleShape2D_qhqgy")
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

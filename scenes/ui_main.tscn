@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cuqhye63o2nok"]
+
+[ext_resource type="Script" uid="uid://bf13ko46pwk0o" path="res://script/barras.gd" id="1_e7ikl"]
+[ext_resource type="Texture2D" uid="uid://b3apjff05jw3y" path="res://Sprites/Vida/vidaCheia.png" id="1_pir4a"]
+[ext_resource type="Texture2D" uid="uid://c0olmm7usp4p5" path="res://Sprites/Vida/vidaVazia.png" id="2_e7ikl"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7u1yg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7ikl")
+}],
+"loop": true,
+"name": &"martelo_batido",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pir4a")
+}],
+"loop": true,
+"name": &"martelo_levantado",
+"speed": 5.0
+}]
+
+[node name="ui_main" type="CanvasLayer" unique_id=1427192611]
+
+[node name="Barras" type="Control" parent="." unique_id=261720633]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_e7ikl")
+
+[node name="martelo_1" type="AnimatedSprite2D" parent="Barras" unique_id=1923647365]
+position = Vector2(43, 162)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7u1yg")
+animation = &"martelo_levantado"
+
+[node name="martelo_2" type="AnimatedSprite2D" parent="Barras" unique_id=1132208953]
+position = Vector2(126, 162)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7u1yg")
+animation = &"martelo_levantado"
+
+[node name="martelo_3" type="AnimatedSprite2D" parent="Barras" unique_id=187941327]
+position = Vector2(205, 162)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_7u1yg")
+animation = &"martelo_levantado"
