@@ -111,6 +111,7 @@ offset_left = -43.0
 offset_top = -29.0
 offset_right = 1957.0
 offset_bottom = 1118.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]

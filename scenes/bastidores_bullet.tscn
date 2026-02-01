@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://bqkpcuk43kmt4" path="res://script/bastidores_bullet.gd" id="1_2cmt4"]
 [ext_resource type="Texture2D" uid="uid://cnebjrogq2knk" path="res://assets/moeda_animação.png" id="1_xk4y0"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_2cmt4"]
-radius = 15.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_wq0w2"]
 atlas = ExtResource("1_xk4y0")
 region = Rect2(0, 0, 32, 32)
@@ -56,13 +53,18 @@ animations = [{
 "speed": 13.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2cmt4"]
+radius = 15.0
+
 [node name="bastidores_bullet" type="Area2D" unique_id=75653236]
 script = ExtResource("1_2cmt4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014016743]
-shape = SubResource("CircleShape2D_2cmt4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1817863577]
 sprite_frames = SubResource("SpriteFrames_17146")
 autoplay = "default"
 frame_progress = 0.7923991
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014016743]
+shape = SubResource("CircleShape2D_2cmt4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

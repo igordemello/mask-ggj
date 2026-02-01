@@ -1,20 +1,45 @@
-[gd_scene format=3 uid="uid://caxm1mqh4tuil"]
+[gd_scene format=3 uid="uid://rv3d81p2qonj"]
 
 [ext_resource type="Script" uid="uid://lki8ml2cqf7g" path="res://scenes/goal.gd" id="1_jbojv"]
+[ext_resource type="Texture2D" uid="uid://b665eh86howbd" path="res://Sprites/curral.png" id="2_sx1j4"]
+[ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="3_w3gav"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sx1j4"]
+size = Vector2(30.5, 23.2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jvyg3"]
+font = ExtResource("3_w3gav")
+font_color = Color(0.92156863, 1, 0.43137255, 1)
 
 [node name="Goal" type="Node2D" unique_id=1349631564]
 script = ExtResource("1_jbojv")
 
+[node name="Curral" type="Sprite2D" parent="." unique_id=118429007]
+texture = ExtResource("2_sx1j4")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=275530542]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=9473469]
+position = Vector2(0, 1.1920929e-06)
 scale = Vector2(4, 2.5)
 shape = SubResource("RectangleShape2D_sx1j4")
 
-[node name="Polygon2D" type="Polygon2D" parent="Area2D" unique_id=1536825722]
-color = Color(0.42000002, 1, 0.449, 1)
-polygon = PackedVector2Array(-40, -25, -40, 25, 40, 25, 40, -25)
+[node name="Label" type="Label" parent="." unique_id=993613518]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -11.5
+offset_right = 59.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Votem em mim"
+label_settings = SubResource("LabelSettings_jvyg3")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]

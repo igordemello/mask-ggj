@@ -136,13 +136,11 @@ func flash_white():
 func abrir_menu():
 	if menu_instancia:
 		menu_instancia.visible = true
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		Engine.time_scale = 0.1
 		
 func fechar_menu():
 	if menu_instancia:
 		menu_instancia.visible = false
-		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Engine.time_scale = 1.0
 		
 		
