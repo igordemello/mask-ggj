@@ -155,4 +155,15 @@ stream = ExtResource("7_fjrip")
 stream = ExtResource("8_smehm")
 volume_db = 3.838
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1151469545]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=208938980]
+modulate = Color(1, 1, 1, 0)
+offset_left = -133.0
+offset_top = -55.0
+offset_right = 1999.0
+offset_bottom = 1173.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

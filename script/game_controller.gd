@@ -15,6 +15,22 @@ var pausado := false
 var jornal_titulo := ""
 var jornal_descricao := ""
 
+var qtd_uso := {
+	"Populismo": 0,
+	"Polarizacao": 0,
+	"Bastidores": 0,
+	"Tecnica": 0,
+	"DiscursoVazio": 0
+}
+
+var titulos_manchetes_finais := {
+	"Populismo": ["A VITÓRIA DO VAZIO","No aniversário da posse, o governo que prometia estabilidade técnica assiste à derrocada da moeda; desabastecimento severo e preços proibitivos transformam o cotidiano de milhões em uma luta desesperada pela sobrevivência."],
+	"Polarizacao": ["NAÇÃO PARTIDA","Enquanto facções ocupam as principais capitais, analistas e historiadores são unânimes: o colapso da ordem é o resultado direto de uma política que transformou cidadãos em inimigos estatísticos."],
+	"Bastidores": ["QUEDA NO SISTEMA","Após meses de investigações, são divulgadas provas de acordos ilícitos com o mercado privado, Hasto sofre impeachment"],
+	"Tecnica": ["O PREÇO DA ORDEM","Enquanto os índices macroeconômicos brilham, a lacuna social atinge níveis críticos."],
+	"DiscursoVazio": ["A VOLTA AO MAPA DA FOME","Após série de tratados comerciais prejudiciais e políticas internas equivocadas, órgãos internacionais confirmam o colapso da segurança alimentar; especialistas classificam governo como tecnocracia da incompetência."]
+}
+
 func adicionar_voto(qtd: int):
 	votos_atuais += qtd
 	votos_alterados.emit(votos_atuais)
@@ -29,7 +45,7 @@ func vencer():
 	pass
 
 func etica_gastar(qtd: float):
-	etica = max(0, etica - qtd)
+	etica = etica - qtd
 	emit_signal("etica_alterada", etica)
 	
 	# Condição de Derrota 2: Ética chega a 0
@@ -40,8 +56,6 @@ func etica_recuperar(qtd: float):
 	etica = min(100, etica + qtd)
 	emit_signal("etica_alterada", etica)
 	
-func etica_pode_gastar(qtd) -> bool:
-	return etica >= qtd
 
 func morrer(titulo: String, desc: String):
 	jornal_titulo = titulo

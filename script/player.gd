@@ -10,6 +10,8 @@ const ROTATION_SPEED := 8.0
 @onready var som_dano: AudioStreamPlayer2D = $SomDano
 @onready var som_andar: AudioStreamPlayer2D = $SomAndar
 
+var freeze := false
+
 var input: Vector2
 var is_playing_priority_anim := false 
 var can_take_damage := true
@@ -38,6 +40,7 @@ func _input(event):
 	if event.is_action_pressed("mask_UI"):
 		abrir_menu()
 	if event.is_action_released("mask_UI"):
+		
 		fechar_menu()
 
 func get_input():
@@ -46,6 +49,8 @@ func get_input():
 	return input.normalized()
 
 func _physics_process(delta: float):
+	if freeze: return
+	
 	var playerInput = get_input() 
 	
 	velocity = lerp(velocity, playerInput * SPEED, delta * ACELL)
@@ -105,6 +110,10 @@ func take_damage():
 	som_dano.play()
 	
 	if GameController.vidas <= 0:
+		freeze = true
+		var tween := get_tree().create_tween()
+		tween.tween_property($CanvasLayer/ColorRect, "modulate:a", 1.0, 1.0)
+		await get_tree().create_timer(1.5).timeout
 		GameController.morrer("Inelegível!", "Após se envolver em escândalos e brigas com eleitores, foi determinada a inegibilidade de Hasto.") 
 		return
 
@@ -135,6 +144,7 @@ func fechar_menu():
 		menu_instancia.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Engine.time_scale = 1.0
+		
 		
 func fire_bastidores_pattern():
 	if bastidores_cd:
