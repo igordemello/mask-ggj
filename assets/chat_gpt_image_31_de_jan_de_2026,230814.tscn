@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cc6vxsqtchrm4"]
+
+[ext_resource type="Texture2D" uid="uid://0jjn5b4e8jc3" path="res://scenes/ChatGPT Image 31 de jan. de 2026, 23_08_14.png" id="1_r06yj"]
+
+[node name="ChatGptImage31DeJan_De2026,230814" type="Sprite2D" unique_id=296804649]
+scale = Vector2(1.2552084, 1.0683594)
+texture = ExtResource("1_r06yj")
