@@ -1,12 +1,16 @@
 extends Control
 
 @onready var gov_para_qm: Sprite2D = $GovParaQm
+@onready var som_cochichos: AudioStreamPlayer2D = $Cochichos
+@onready var som_martelo: AudioStreamPlayer2D = $Martelo
 
 func _ready() -> void:
 	gov_para_qm.modulate.a = 0.0
+	som_cochichos.play()
 
 func _on_botao_jogar_pressed() -> void:
 	var tween := create_tween()
+	som_martelo.play()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_OUT)
 

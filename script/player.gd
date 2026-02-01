@@ -7,6 +7,8 @@ const ROTATION_SPEED := 8.0
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var flash_material: ShaderMaterial = sprite.material
 @onready var crowd_system := get_parent().get_node("CrowdSystem")
+@onready var som_dano: AudioStreamPlayer2D = $SomDano
+@onready var som_andar: AudioStreamPlayer2D = $SomAndar
 
 var input: Vector2
 var is_playing_priority_anim := false 
@@ -47,11 +49,21 @@ func _physics_process(delta: float):
 	
 	if not is_playing_priority_anim:
 		if velocity.length() > 2.0:
+			# Lógica da Animação
 			if sprite.animation != "run":
 				sprite.play("run")
+			
+			# Lógica do Som de Passos
+			if not som_andar.playing:
+				som_andar.play()
 		else:
+			# Lógica da Animação
 			if sprite.animation != "idle":
 				sprite.play("idle")
+			
+			# Para o som imediatamente ao ficar idle
+			if som_andar.playing:
+				som_andar.stop()
 
 	if velocity.length() > 5.0:
 		var target_rotation := velocity.angle() + PI / 2
@@ -83,6 +95,7 @@ func take_damage():
 
 	GameController.vidas -= 1
 	flash_white()
+	som_dano.play()
 	
 	if GameController.vidas <= 0:
 		GameController.morrer("vida_0") 

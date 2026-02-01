@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://6cnl1044xh6w" path="res://Sprites/Hud/botaoClicado.png" id="6_2xgxd"]
 [ext_resource type="Texture2D" uid="uid://cwugcxt3shpcr" path="res://Sprites/LogoMask.png" id="6_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://b50xkg75lydmb" path="res://Sprites/Hud/botaoMouse.png" id="8_2xgxd"]
+[ext_resource type="AudioStream" uid="uid://te30s3r7ac7o" path="res://sounds/judgehammer.mp3" id="9_8k4fm"]
+[ext_resource type="AudioStream" uid="uid://cv3xaxewvtk01" path="res://sounds/crowd_generic.mp3" id="9_lgh5n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i85hu"]
 font = ExtResource("3_486ty")
@@ -105,6 +107,16 @@ modulate = Color(1, 1, 1, 0)
 position = Vector2(960, 540)
 scale = Vector2(8, 8)
 texture = ExtResource("5_w5ui5")
+
+[node name="Cochichos" type="AudioStreamPlayer2D" parent="." unique_id=784622513]
+stream = ExtResource("9_lgh5n")
+volume_db = -4.388
+pitch_scale = 1.15
+
+[node name="Martelo" type="AudioStreamPlayer2D" parent="." unique_id=1354998606]
+stream = ExtResource("9_8k4fm")
+volume_db = 6.0
+pitch_scale = 0.67
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
 [connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
