@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://c23r4dcosmfho"]
 
-[ext_resource type="Script" uid="uid://baj75vyq800eg" path="res://script/menu_principal.gd" id="1_i85hu"]
-[ext_resource type="PackedScene" uid="uid://cc6vxsqtchrm4" path="res://assets/chat_gpt_image_31_de_jan_de_2026,230814.tscn" id="2_486ty"]
+[ext_resource type="Script" path="res://script/menu_principal.gd" id="1_i85hu"]
+[ext_resource type="PackedScene" path="res://assets/chat_gpt_image_31_de_jan_de_2026,230814.tscn" id="2_486ty"]
 [ext_resource type="FontFile" uid="uid://du3e08cvto5fo" path="res://assets/fonts/JMH Typewriter.ttf" id="2_iep14"]
 [ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="3_486ty"]
+[ext_resource type="Texture2D" uid="uid://cqe6fg2lxn6ma" path="res://Sprites/Hud/govParaQm.png" id="5_w5ui5"]
 
 [sub_resource type="Theme" id="Theme_w5ui5"]
 
@@ -19,6 +20,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i85hu")
+
+[node name="GovParaQm" type="Sprite2D" parent="." unique_id=136629540]
+position = Vector2(960, 540)
+scale = Vector2(8, 8)
+texture = ExtResource("5_w5ui5")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=220686710]
 layout_mode = 1
