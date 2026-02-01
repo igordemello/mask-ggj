@@ -1,16 +1,31 @@
 [gd_scene format=3 uid="uid://c23r4dcosmfho"]
 
-[ext_resource type="Script" path="res://script/menu_principal.gd" id="1_i85hu"]
-[ext_resource type="PackedScene" path="res://assets/chat_gpt_image_31_de_jan_de_2026,230814.tscn" id="2_486ty"]
-[ext_resource type="FontFile" uid="uid://du3e08cvto5fo" path="res://assets/fonts/JMH Typewriter.ttf" id="2_iep14"]
+[ext_resource type="Script" uid="uid://baj75vyq800eg" path="res://script/menu_principal.gd" id="1_i85hu"]
 [ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="3_486ty"]
+[ext_resource type="Texture2D" uid="uid://nf40l4x8uid0" path="res://Sprites/Hud/botao.png" id="5_nxt0m"]
+[ext_resource type="Texture2D" uid="uid://dbbvraiitmrgn" path="res://Sprites/Hud/Menu.png" id="5_qcl6i"]
 [ext_resource type="Texture2D" uid="uid://cqe6fg2lxn6ma" path="res://Sprites/Hud/govParaQm.png" id="5_w5ui5"]
-
-[sub_resource type="Theme" id="Theme_w5ui5"]
+[ext_resource type="Texture2D" uid="uid://6cnl1044xh6w" path="res://Sprites/Hud/botaoClicado.png" id="6_2xgxd"]
+[ext_resource type="Texture2D" uid="uid://cwugcxt3shpcr" path="res://Sprites/LogoMask.png" id="6_qcl6i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i85hu"]
 font = ExtResource("3_486ty")
 font_size = 90
+font_color = Color(0.8745098, 0.8745098, 0.8745098, 1)
+
+[sub_resource type="Theme" id="Theme_w5ui5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8k4fm"]
+texture = ExtResource("5_nxt0m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgh5n"]
+texture = ExtResource("6_2xgxd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxt0m"]
+texture = ExtResource("5_nxt0m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xgxd"]
+texture = ExtResource("6_2xgxd")
 
 [node name="MenuPrincipal" type="Control" unique_id=272785725]
 layout_mode = 3
@@ -26,63 +41,60 @@ position = Vector2(960, 540)
 scale = Vector2(8, 8)
 texture = ExtResource("5_w5ui5")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=220686710]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.015686275, 0.007843138, 0.003921569, 1)
-
-[node name="ChatGptImage31DeJan_De2026,230814" parent="." unique_id=296804649 instance=ExtResource("2_486ty")]
-position = Vector2(976, 551)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1449285835]
-custom_minimum_size = Vector2(0, 10)
-layout_direction = 1
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.49400002
-anchor_top = 0.781
-anchor_right = 0.49400002
-anchor_bottom = 0.781
-offset_left = -124.48004
-offset_top = -82.48004
-offset_right = 125.51996
-offset_bottom = 81.51996
-alignment = 1
-
-[node name="BotaoJogar" type="Button" parent="VBoxContainer" unique_id=682880135]
-custom_minimum_size = Vector2(0, 80)
-layout_mode = 2
-theme = SubResource("Theme_w5ui5")
-theme_override_fonts/font = ExtResource("2_iep14")
-theme_override_font_sizes/font_size = 20
-text = "Candidatar-se"
-autowrap_trim_flags = 0
-
-[node name="BotaoSair" type="Button" parent="VBoxContainer" unique_id=337384789]
-custom_minimum_size = Vector2(250, 80)
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_iep14")
-theme_override_font_sizes/font_size = 20
-text = "Sair"
+[node name="Menu" type="Sprite2D" parent="." unique_id=1888660966]
+position = Vector2(960, 540)
+scale = Vector2(8, 8)
+texture = ExtResource("5_qcl6i")
 
 [node name="Titulo" type="Label" parent="." unique_id=42619629]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -207.0
-offset_top = 297.0
-offset_right = 205.0
-offset_bottom = 385.0
+offset_left = -291.0
+offset_top = 533.0
+offset_right = 289.0
+offset_bottom = 621.0
 grow_horizontal = 2
 text = "Ética de Papel"
 label_settings = SubResource("LabelSettings_i85hu")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="VBoxContainer/BotaoJogar" to="." method="_on_botao_jogar_pressed"]
-[connection signal="pressed" from="VBoxContainer/BotaoSair" to="." method="_on_botao_sair_pressed"]
+[node name="LogoMask" type="Sprite2D" parent="." unique_id=1803095193]
+position = Vector2(960, 300)
+scale = Vector2(4, 4)
+texture = ExtResource("6_qcl6i")
+
+[node name="BotaoJogar" type="Button" parent="." unique_id=682880135]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 0
+offset_left = 824.0
+offset_top = 725.0
+offset_right = 1074.0
+offset_bottom = 805.0
+theme = SubResource("Theme_w5ui5")
+theme_override_colors/font_color = Color(0.36862746, 0.16862746, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("3_486ty")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_8k4fm")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lgh5n")
+text = "Candidatar-se"
+autowrap_trim_flags = 0
+
+[node name="BotaoSair" type="Button" parent="." unique_id=337384789]
+custom_minimum_size = Vector2(250, 80)
+layout_mode = 0
+offset_left = 824.0
+offset_top = 845.0
+offset_right = 1074.0
+offset_bottom = 925.0
+theme_override_colors/font_color = Color(0.36862746, 0.16862746, 0.23137255, 1)
+theme_override_fonts/font = ExtResource("3_486ty")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxTexture_nxt0m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2xgxd")
+text = "Sair"
+
+[connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
