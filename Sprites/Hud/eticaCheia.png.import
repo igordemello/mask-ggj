@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqvpdngj0g8s1"
-path="res://.godot/imported/eticaCheia.png-eec56bd70a14cceca6fda0da0c038736.ctex"
+path="res://.godot/imported/eticaCheia.png-5c8efdaa2cd918b98f040bcbe9e75cd2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Barras/eticaCheia.png"
-dest_files=["res://.godot/imported/eticaCheia.png-eec56bd70a14cceca6fda0da0c038736.ctex"]
+source_file="res://Sprites/Hud/eticaCheia.png"
+dest_files=["res://.godot/imported/eticaCheia.png-5c8efdaa2cd918b98f040bcbe9e75cd2.ctex"]
 
 [params]
 

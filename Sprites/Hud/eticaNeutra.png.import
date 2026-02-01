@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://br7lu2yox1xy"
-path="res://.godot/imported/eticaNeutra.png-a418493d5b8b79454d8f548090b9360d.ctex"
+path="res://.godot/imported/eticaNeutra.png-b5573019ebdfdf8be3c2872426675783.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Barras/eticaNeutra.png"
-dest_files=["res://.godot/imported/eticaNeutra.png-a418493d5b8b79454d8f548090b9360d.ctex"]
+source_file="res://Sprites/Hud/eticaNeutra.png"
+dest_files=["res://.godot/imported/eticaNeutra.png-b5573019ebdfdf8be3c2872426675783.ctex"]
 
 [params]
 
