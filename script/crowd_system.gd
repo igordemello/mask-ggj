@@ -40,6 +40,8 @@ var field_timer := 0.0
 @export var desaceleracao_multiplier := 0.3
 @export var desaceleracao_duration := 6.0
 
+@onready var som_multidao: AudioStreamPlayer2D = $SomMultidao
+
 
 # Adicione essas variáveis para controlar a polarização
 var polarizacao_active := false
@@ -58,6 +60,7 @@ func set_mask(mask: int):
 func _ready():
 	spawn_initial_crowd()
 	player.damaged.connect(on_player_damaged)
+	som_multidao.play()
 
 func spawn_agents():
 	for i in agent_count:
