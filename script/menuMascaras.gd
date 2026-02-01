@@ -65,6 +65,7 @@ func _on_area_mouse_exited(area_node):
 	if poly and mask:
 		poly.color = Color(0.659, 0.659, 0.659, 0.2)
 		mask.scale = Vector2(5, 5)
+
 func executar_acao(nome_do_botao):
 	match nome_do_botao:
 		"Area2D":

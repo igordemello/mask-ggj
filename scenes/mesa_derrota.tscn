@@ -106,5 +106,12 @@ theme_override_font_sizes/font_size = 33
 text = "Menu principal"
 flat = true
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=670981453]
+offset_left = -43.0
+offset_top = -29.0
+offset_right = 1957.0
+offset_bottom = 1118.0
+color = Color(0, 0, 0, 1)
+
 [connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
 [connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

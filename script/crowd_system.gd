@@ -94,18 +94,22 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_mask"):
 		if current_mask == MaskController.MaskType.POPULISMO:
 			apply_populismo_pulse()
+			GameController.qtd_uso["Populismo"] += 1
 			
 		if current_mask == MaskController.MaskType.POLARIZACAO:
 			assign_polarization_sides()
 			disable_collisions_temporarily()
 			polarizacao_active = true
 			polarizacao_timer = polarizacao_duration
+			GameController.qtd_uso["Polarizacao"] += 1
 			
 		if current_mask == MaskController.MaskType.TECNICA:
 			apply_congelamento()
+			GameController.qtd_uso["Tecnica"] += 1
 			
 		if current_mask == MaskController.MaskType.DISCURSO_VAZIO:
 			apply_desaceleracao()
+			GameController.qtd_uso["DiscursoVazio"] += 1
 
 
 func update_field():

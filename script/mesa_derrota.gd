@@ -3,6 +3,9 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
+	var tween := get_tree().create_tween()
+	tween.tween_property($ColorRect, "modulate:a", 0.0, 1.0)
+	
 	animation_player.play("entry_jornal")
 	
 	await animation_player.animation_finished

@@ -22,9 +22,6 @@ func equip_mask(mask: int):
 	if current_mask == mask:
 		return
 
-	if not GameController.etica_pode_gastar(ethics_cost):
-		return
-
 	GameController.etica_gastar(ethics_cost)
 	current_mask = mask
 	
