@@ -137,7 +137,7 @@ frame = 3
 frame_progress = 0.8662228
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
-zoom = Vector2(1.5, 1.5)
+zoom = Vector2(1.85, 1.85)
 position_smoothing_enabled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=688721814]

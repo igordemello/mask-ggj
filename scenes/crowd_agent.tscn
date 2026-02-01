@@ -119,7 +119,7 @@ radius = 28.160255
 [sub_resource type="CircleShape2D" id="CircleShape2D_w8vvl"]
 radius = 30.0
 
-[node name="CrowdAgent" type="CharacterBody2D" unique_id=1054907610]
+[node name="CrowdAgent" type="CharacterBody2D" unique_id=1054907610 groups=["agents"]]
 scale = Vector2(0.7, 0.7)
 script = ExtResource("1_ptrki")
 separation_radius = 100.0
@@ -130,7 +130,7 @@ scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hy0gt")
 animation = &"3"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83414158]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83414158 groups=["agents"]]
 shape = SubResource("CircleShape2D_u3p8t")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1380839514]

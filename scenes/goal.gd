@@ -8,22 +8,22 @@ func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_inde
 	
 	if body.name == "player":
 		return
-	
-	# Espera inicial
+
 	await get_tree().create_timer(0.75).timeout
-	if !is_instance_valid(body):
+	if not is_instance_valid(body):
+		GameController.adicionar_voto(500)
 		return
-	
+
 	body.freeze(10)
 	flash_white(body)
 
-	# Segunda espera
 	await get_tree().create_timer(0.75).timeout
-	if !is_instance_valid(body):
+	if not is_instance_valid(body):
+		GameController.adicionar_voto(50)
 		return
-	
+
 	body.queue_free()
-	GameController.adicionar_voto(500)
+	GameController.adicionar_voto(50)
 		
 func flash_white(body: Node2D):
 	# Procuramos pelo AnimatedSprite2D no corpo que entrou na área
