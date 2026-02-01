@@ -25,7 +25,7 @@ func _on_botao_jogar_pressed() -> void:
 
 	await get_tree().create_timer(3.0).timeout
 
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/fase1.tscn")
 
 func _on_botao_sair_pressed() -> void:
 	get_tree().quit()

@@ -1,9 +1,12 @@
-[gd_scene format=3 uid="uid://c6euqnmynuyyl"]
+[gd_scene format=3 uid="uid://c8wl8npql2f3g"]
 
-[ext_resource type="PackedScene" uid="uid://lpj2d52plwiw" path="res://scenes/tile_map_level1.tscn" id="1_j60hp"]
+[ext_resource type="PackedScene" path="res://scenes/tile_map_level1.tscn" id="1_j60hp"]
 [ext_resource type="PackedScene" uid="uid://bmcw0ya4fudbh" path="res://scenes/player.tscn" id="2_hrl3v"]
-[ext_resource type="PackedScene" uid="uid://b5wtj537w65h4" path="res://scenes/crowdSystemScene.tscn" id="3_5ca1b"]
-[ext_resource type="PackedScene" uid="uid://caxm1mqh4tuil" path="res://scenes/goal.tscn" id="4_hrl3v"]
+[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="4_hrl3v"]
+[ext_resource type="Script" uid="uid://c70dm8iaf6c51" path="res://script/crowd_system.gd" id="4_rov8o"]
+[ext_resource type="Script" uid="uid://gq3w65tcvab4" path="res://script/crowd_field.gd" id="5_5ca1b"]
+[ext_resource type="PackedScene" uid="uid://c7tbdhdw6o63n" path="res://scenes/crowd_agent.tscn" id="5_5h07d"]
+[ext_resource type="PackedScene" uid="uid://cuqhye63o2nok" path="res://scenes/ui_main.tscn" id="6_6xul2"]
 
 [node name="Fase1" type="Node2D" unique_id=243203336]
 
@@ -15,11 +18,20 @@ position = Vector2(0, -360)
 scale = Vector2(3, 1.5)
 
 [node name="player" parent="." unique_id=727039025 instance=ExtResource("2_hrl3v")]
+scale = Vector2(2.5, 2.5)
 
-[node name="CrowdSystem" parent="." unique_id=214046978 instance=ExtResource("3_5ca1b")]
-initial_agent_count = 80
+[node name="CrowdSystem" type="Node2D" parent="." unique_id=1276707618]
+script = ExtResource("4_rov8o")
+agent_scene = ExtResource("5_5h07d")
+neighbor_radius = 100.0
+dissipate_radius = 100.0
+initial_agent_count = 100
 
-[node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=145598162]
-position = Vector2(-6, -10)
+[node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1808511839]
+script = ExtResource("5_5ca1b")
+
+[node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=606327864]
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(-216, -198, -212, 215, 222, 212, 241, -167, 251, -395, 416, -375, 405, 409, -390, 407, -399, -402, -229, -401)
+polygon = PackedVector2Array(-395, -318, -286, -320, -214, 171, 204, 173, 304, -320, 408, -322, 405, 404, -392, 388)
+
+[node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_6xul2")]

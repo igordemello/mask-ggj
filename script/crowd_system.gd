@@ -169,6 +169,8 @@ func dissipate_near_player():
 	var to_remove := []
 
 	for a in agents:
+		if a == null:
+			continue
 		if a.global_position.distance_to(player.global_position) <= dissipate_radius:
 			to_remove.append(a)
 
@@ -237,6 +239,8 @@ func apply_populismo_pulse():
 	print("PULSO APLICADO")
 
 	for a in agents:
+		if a == null:
+			continue
 		var diff = a.global_position - player.global_position
 		var dist = diff.length()
 
@@ -251,6 +255,8 @@ func apply_populismo_pulse():
 
 func assign_polarization_sides():
 	for a in agents:
+		if a == null:
+			return
 		a.assign_polarization()
 
 
@@ -287,6 +293,8 @@ func get_polarizacao_force(agent) -> Vector2:
 
 func disable_collisions_temporarily():
 	for a in agents:
+		if a == null:
+			return
 		a.disable_agent_collision()
 	
 	

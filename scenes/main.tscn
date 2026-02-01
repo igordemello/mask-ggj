@@ -25,7 +25,6 @@ dissipate_radius = 200.0
 initial_agent_count = 300
 
 [node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1599278310]
-visible = false
 script = ExtResource("3_sugp2")
 
 [node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=1829195952]

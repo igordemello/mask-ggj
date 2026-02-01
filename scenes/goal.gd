@@ -3,13 +3,27 @@ extends Node2D
 @export var player := CharacterBody2D
 
 func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	if body.name != "player" and body != null:
-		await get_tree().create_timer(0.75).timeout
-		body.freeze(10)
-		flash_white(body)
-		await get_tree().create_timer(0.75).timeout
-		body.queue_free()
-		GameController.adicionar_voto(500)
+	if body == null:
+		return
+	
+	if body.name == "player":
+		return
+	
+	# Espera inicial
+	await get_tree().create_timer(0.75).timeout
+	if !is_instance_valid(body):
+		return
+	
+	body.freeze(10)
+	flash_white(body)
+
+	# Segunda espera
+	await get_tree().create_timer(0.75).timeout
+	if !is_instance_valid(body):
+		return
+	
+	body.queue_free()
+	GameController.adicionar_voto(500)
 		
 func flash_white(body: Node2D):
 	# Procuramos pelo AnimatedSprite2D no corpo que entrou na área

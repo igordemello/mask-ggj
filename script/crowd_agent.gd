@@ -26,7 +26,7 @@ func disable_agent_collision():
 	if collision_disabled:
 		return
 	collision_disabled = true
-	$CollisionShape2D.disabled = true
+	$CollisionShape2D.disabled = false
 
 func enable_agent_collision():
 	if not collision_disabled:
