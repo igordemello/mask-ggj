@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://clackmn78gd55" path="res://assets/inimigo1_run.png" id="2_w8vvl"]
 [ext_resource type="Texture2D" uid="uid://dnhfh5wpxqyub" path="res://assets/inimigo2_run.png" id="3_qt0yl"]
 [ext_resource type="Texture2D" uid="uid://7b4ywkq23eld" path="res://assets/inimigo3_run.png" id="4_esi2g"]
+[ext_resource type="Texture2D" uid="uid://b1800mddimk2s" path="res://assets/inimigo4_run.png" id="6_hy0gt"]
+[ext_resource type="Texture2D" uid="uid://bkbjye5u7307f" path="res://assets/inimigo5_run.png" id="7_nl6fr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hy0gt"]
 resource_local_to_scene = true
@@ -59,6 +61,38 @@ region = Rect2(128, 0, 64, 64)
 atlas = ExtResource("4_esi2g")
 region = Rect2(192, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl6fr"]
+atlas = ExtResource("6_hy0gt")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vrlv"]
+atlas = ExtResource("6_hy0gt")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxnss"]
+atlas = ExtResource("6_hy0gt")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdbcq"]
+atlas = ExtResource("6_hy0gt")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ui88r"]
+atlas = ExtResource("7_nl6fr")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqccd"]
+atlas = ExtResource("7_nl6fr")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7upok"]
+atlas = ExtResource("7_nl6fr")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpvxv"]
+atlas = ExtResource("7_nl6fr")
+region = Rect2(192, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hy0gt"]
 animations = [{
 "frames": [{
@@ -111,6 +145,40 @@ animations = [{
 "loop": true,
 "name": &"3",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nl6fr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vrlv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxnss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdbcq")
+}],
+"loop": true,
+"name": &"4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ui88r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqccd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7upok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpvxv")
+}],
+"loop": true,
+"name": &"5",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u3p8t"]
@@ -128,7 +196,7 @@ separation_radius = 100.0
 material = SubResource("ShaderMaterial_hy0gt")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hy0gt")
-animation = &"3"
+animation = &"5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83414158 groups=["agents"]]
 shape = SubResource("CircleShape2D_u3p8t")

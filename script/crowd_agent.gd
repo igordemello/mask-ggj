@@ -43,7 +43,7 @@ func apply_knockback(dir: Vector2, strength: float, duration := 0.35):
 
 func _ready() -> void:
 	randomize()
-	sprite.play(str(randi_range(1, 3)))
+	sprite.play(str(randi_range(1, 5)))
 
 func _physics_process(delta):
 	if not active:

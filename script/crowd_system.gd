@@ -93,10 +93,12 @@ func _physics_process(delta):
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_mask"):
 		if current_mask == MaskController.MaskType.POPULISMO:
+			GameController.etica_gastar(5)
 			apply_populismo_pulse()
 			GameController.qtd_uso["Populismo"] += 1
 			
 		if current_mask == MaskController.MaskType.POLARIZACAO:
+			GameController.etica_gastar(5)
 			assign_polarization_sides()
 			disable_collisions_temporarily()
 			polarizacao_active = true
@@ -105,10 +107,12 @@ func _process(delta: float) -> void:
 			
 		if current_mask == MaskController.MaskType.TECNICA:
 			apply_congelamento()
+			GameController.etica_gastar(5)
 			GameController.qtd_uso["Tecnica"] += 1
 			
 		if current_mask == MaskController.MaskType.DISCURSO_VAZIO:
 			apply_desaceleracao()
+			GameController.etica_gastar(5)
 			GameController.qtd_uso["DiscursoVazio"] += 1
 
 
@@ -330,3 +334,10 @@ func apply_desaceleracao():
 	for a in agents:
 		if is_instance_valid(a) and not a.dying:
 			a.apply_slow(desaceleracao_multiplier, desaceleracao_duration)
+
+
+func has_agents_alive() -> bool:
+	for a in agents:
+		if is_instance_valid(a) and not a.dying:
+			return true
+	return false

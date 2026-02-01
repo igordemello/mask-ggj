@@ -84,6 +84,7 @@ func _physics_process(delta: float):
 		
 	if Input.is_action_just_pressed("use_mask"):
 		if MaskController.current_mask == MaskController.MaskType.BASTIDORES:
+			GameController.etica_gastar(5)
 			fire_bastidores_pattern()
 
 func _on_mask_changed(_mask_id: int):

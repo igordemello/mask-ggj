@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c8wl8npql2f3g"]
 
-[ext_resource type="PackedScene" path="res://scenes/tile_map_level1.tscn" id="1_j60hp"]
+[ext_resource type="PackedScene" uid="uid://bej0c1rwkkxeg" path="res://scenes/tile_map_level1.tscn" id="1_j60hp"]
+[ext_resource type="Script" uid="uid://dlw46jonm78dj" path="res://scenes/fase_1.gd" id="1_jdvtd"]
 [ext_resource type="PackedScene" uid="uid://bmcw0ya4fudbh" path="res://scenes/player.tscn" id="2_hrl3v"]
 [ext_resource type="PackedScene" uid="uid://rv3d81p2qonj" path="res://scenes/goal.tscn" id="4_hrl3v"]
 [ext_resource type="Script" uid="uid://c70dm8iaf6c51" path="res://script/crowd_system.gd" id="4_rov8o"]
@@ -10,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://eje8s7n7368y" path="res://sounds/crowd_angry.mp3" id="7_5h07d"]
 
 [node name="Fase1" type="Node2D" unique_id=243203336]
+script = ExtResource("1_jdvtd")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=746323631]
 offset_left = -1651.0

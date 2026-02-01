@@ -31,6 +31,17 @@ var titulos_manchetes_finais := {
 	"DiscursoVazio": ["A VOLTA AO MAPA DA FOME","Após série de tratados comerciais prejudiciais e políticas internas equivocadas, órgãos internacionais confirmam o colapso da segurança alimentar; especialistas classificam governo como tecnocracia da incompetência."]
 }
 
+func get_most_used_mask() -> String:
+	var max_key := ""
+	var max_value := -1
+
+	for key in qtd_uso.keys():
+		if qtd_uso[key] > max_value:
+			max_value = qtd_uso[key]
+			max_key = key
+
+	return max_key
+
 func adicionar_voto(qtd: int):
 	votos_atuais += qtd
 	votos_alterados.emit(votos_atuais)
@@ -63,3 +74,19 @@ func morrer(titulo: String, desc: String):
 	#get_tree().paused = true
 	# call_deferred é mais seguro para mudar de cena durante colisões
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/mesa_derrota.tscn")
+	
+func ganhar():
+	var mask = get_most_used_mask()
+	
+	if not titulos_manchetes_finais.has(mask):
+		push_warning("Máscara sem manchete: " + mask)
+		return
+
+	var titulo = titulos_manchetes_finais[mask][0]
+	var desc = titulos_manchetes_finais[mask][1]
+	
+	jornal_titulo = titulo
+	jornal_descricao = desc
+	#get_tree().paused = true
+	# call_deferred é mais seguro para mudar de cena durante colisões
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/mesa_vitória.tscn")

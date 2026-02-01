@@ -1,6 +1,6 @@
 extends Node
 
-@export var ethics_cost := 5
+@export var ethics_cost := 10
 @export var ethics_recover_rate := 1.0
 signal mask_changed(mask: int)
 

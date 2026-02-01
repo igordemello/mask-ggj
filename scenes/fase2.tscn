@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://c2lycnvugypkp"]
+
+[ext_resource type="Script" uid="uid://cuclryvumbbn7" path="res://scenes/fase_2.gd" id="1_rvgse"]
+[ext_resource type="PackedScene" uid="uid://rv3d81p2qonj" path="res://scenes/goal.tscn" id="2_op3ry"]
+[ext_resource type="PackedScene" uid="uid://bmcw0ya4fudbh" path="res://scenes/player.tscn" id="3_rvgse"]
+[ext_resource type="Script" uid="uid://c70dm8iaf6c51" path="res://script/crowd_system.gd" id="4_38mxl"]
+[ext_resource type="PackedScene" uid="uid://c7tbdhdw6o63n" path="res://scenes/crowd_agent.tscn" id="5_p4wq5"]
+[ext_resource type="Script" uid="uid://gq3w65tcvab4" path="res://script/crowd_field.gd" id="6_c2n17"]
+[ext_resource type="AudioStream" uid="uid://eje8s7n7368y" path="res://sounds/crowd_angry.mp3" id="7_qdq68"]
+[ext_resource type="PackedScene" uid="uid://cuqhye63o2nok" path="res://scenes/ui_main.tscn" id="8_4lfk7"]
+[ext_resource type="PackedScene" uid="uid://bqnq0y5b5n8r" path="res://scenes/tile_map_level1_alt2.tscn" id="8_op3ry"]
+[ext_resource type="Texture2D" uid="uid://wxsvr2rx6jkp" path="res://Sprites/TilesetFloor-SheetAlt.png" id="9_rvgse"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38mxl"]
+texture = ExtResource("9_rvgse")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.2590837, -14.316755, 8.417389, -13.453434, 13.741207, -9.712372, 16, -1.0791531, 12.590111, 7.5540657, 7.410177, 12.158451, 0.503603, 13.597319, -7.5540676, 11.439014, -16, 1.6547012, -12.446223, -5.251874)
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 4.2655296, 16, 3.7432194, 16, -6.877078, -16, -6.354767)
+1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(9.488628, 16, -7.051182, 16, -7.9216976, -16, 10.359144, -16)
+2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-6.3547688, -13.318898, 6.3547688, -12.970692, 12.448383, -6.7029743, 12.622486, 5.1360455, 4.78784, 10.010937, -4.9619427, 10.010937, -9.836833, 4.4396324, -12.274279, -4.787838)
+3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.8324585, -8.61811, 4.78784, -9.314523, 10.881454, -2.6985989, 11.055557, 4.613737, -0.9575672, 9.140421, -7.9216976, 7.573492, -8.792213, -2.8727036)
+4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.0468063, -7.051181, 2.6986008, -6.180665, 6.0065613, -3.220909, 6.180666, 4.091427, -0.60936165, 6.180666, -6.5288715, 5.484253, -6.7029743, -0.26115417)
+5:4/0 = 0
+5:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1.4798775, -9.4886265, 7.3993874, -6.180665, 8.0958, 1.6539822, 3.0468063, 7.2252846, -6.877077, 4.613737, -7.051182, -2.524496, -2.6986008, -8.61811)
+6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.9173222, -10.1850395, 8.444008, -7.747594, 10.1850395, 0.26115608, 9.140419, 5.6583557, 1.828085, 9.4886265, -6.877077, 7.9216976, -10.70735, 1.828085, -10.010937, -6.5288715)
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p4wq5"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_38mxl")
+
+[node name="Fase1" type="Node2D" unique_id=243203336]
+script = ExtResource("1_rvgse")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=746323631]
+offset_left = -1485.0
+offset_top = -1364.0
+offset_right = 1761.0
+offset_bottom = 1108.0
+color = Color(0.05, 0.05, 0.05, 1)
+
+[node name="TileMap" parent="." unique_id=2093013381 instance=ExtResource("8_op3ry")]
+position = Vector2(0, -4)
+tile_set = SubResource("TileSet_p4wq5")
+
+[node name="Goal" parent="." unique_id=1349631564 node_paths=PackedStringArray("player") instance=ExtResource("2_op3ry")]
+position = Vector2(-419, 47)
+scale = Vector2(1.01, 1.01)
+player = NodePath("../player")
+
+[node name="player" parent="." unique_id=727039025 instance=ExtResource("3_rvgse")]
+position = Vector2(387, -263)
+scale = Vector2(2.5, 2.5)
+
+[node name="CrowdSystem" type="Node2D" parent="." unique_id=1276707618]
+script = ExtResource("4_38mxl")
+agent_scene = ExtResource("5_p4wq5")
+neighbor_radius = 100.0
+dissipate_radius = 100.0
+initial_agent_count = 150
+
+[node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1808511839]
+script = ExtResource("6_c2n17")
+
+[node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=606327864]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(-214, -103, -175, -298, -130, -367, -24, -351, -26, -204, -29, 42, 73, -11, 82, -148, 219, -76, 363, -50, 507, -36, 415, 33, 77, 62, 91, 108, 466, 102, 405, 404, -91, 359, -160, 230, -169, 49)
+
+[node name="SomMultidao" type="AudioStreamPlayer2D" parent="CrowdSystem" unique_id=746126678]
+stream = ExtResource("7_qdq68")
+volume_db = -4.875
+
+[node name="SomMultidao2" type="AudioStreamPlayer2D" parent="CrowdSystem" unique_id=1134856665]
+stream = ExtResource("7_qdq68")
+volume_db = -4.875
+
+[node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("8_4lfk7")]
