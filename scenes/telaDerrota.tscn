@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cd1576itq1e6q"]
 
 [ext_resource type="Script" uid="uid://dx1obik0orewq" path="res://script/tela_derrota.gd" id="1_6w31q"]
+[ext_resource type="AudioStream" uid="uid://te30s3r7ac7o" path="res://sounds/judgehammer.mp3" id="2_yypdl"]
+[ext_resource type="AudioStream" uid="uid://dxdxssedthjh6" path="res://sounds/crowd_surprise.mp3" id="3_hp4m3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6w31q"]
 font_size = 80
@@ -60,6 +62,12 @@ text = "Tentar Novamente"
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 text = "Menu Principal"
+
+[node name="SomMorte1" type="AudioStreamPlayer2D" parent="." unique_id=2013176124]
+stream = ExtResource("2_yypdl")
+
+[node name="SomMorte2" type="AudioStreamPlayer2D" parent="." unique_id=272563258]
+stream = ExtResource("3_hp4m3")
 
 [connection signal="pressed" from="VBoxContainer/BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
 [connection signal="pressed" from="VBoxContainer/BotaoMenu" to="." method="_on_botao_menu_pressed"]

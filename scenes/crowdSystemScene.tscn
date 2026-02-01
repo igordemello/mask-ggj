@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b5wtj537w65h4"]
+
+[ext_resource type="Script" uid="uid://c70dm8iaf6c51" path="res://script/crowd_system.gd" id="1_mk4h5"]
+[ext_resource type="PackedScene" uid="uid://c7tbdhdw6o63n" path="res://scenes/crowd_agent.tscn" id="2_hatow"]
+[ext_resource type="Script" uid="uid://gq3w65tcvab4" path="res://script/crowd_field.gd" id="3_1sobb"]
+
+[node name="CrowdSystemScene" type="Node2D" unique_id=214046978]
+script = ExtResource("1_mk4h5")
+agent_scene = ExtResource("2_hatow")
+
+[node name="CrowdField" type="Node2D" parent="." unique_id=1967431757]
+script = ExtResource("3_1sobb")

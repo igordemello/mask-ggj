@@ -114,6 +114,7 @@ radius = 28.160255
 radius = 30.0
 
 [node name="CrowdAgent" type="CharacterBody2D" unique_id=1054907610]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_ptrki")
 separation_radius = 100.0
 
