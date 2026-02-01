@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Hud/eticaRuim.png" id="6_lbldr"]
 [ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Hud/eticaVazia.png" id="7_vsg1l"]
 [ext_resource type="Script" uid="uid://cufqcq5p3feet" path="res://votos.gd" id="10_fq0td"]
+[ext_resource type="Texture2D" uid="uid://bf4wl1v0xdesm" path="res://Sprites/Mascaras/Bastidores.png" id="11_hajj7"]
+[ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="12_2suug"]
+[ext_resource type="Texture2D" uid="uid://dk35i65scy3r4" path="res://Sprites/Mascaras/Polarização-1.png" id="13_n2f4j"]
+[ext_resource type="Texture2D" uid="uid://damj4culqd1kn" path="res://Sprites/Mascaras/Populismo-1.png" id="14_jgeat"]
+[ext_resource type="Texture2D" uid="uid://cabt82v3bjtwq" path="res://Sprites/Mascaras/Tecnica.png" id="15_rt4eg"]
+[ext_resource type="Script" uid="uid://caeln7vhl6vog" path="res://script/mascara_ui.gd" id="16_2suug"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1yg"]
 animations = [{
@@ -198,6 +204,54 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_fq0td"]
 font_size = 40
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfo2n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_hajj7")
+}],
+"loop": true,
+"name": &"Bastidores",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_2suug")
+}],
+"loop": true,
+"name": &"DiscursoVazio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_n2f4j")
+}],
+"loop": true,
+"name": &"Polarização",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_jgeat")
+}],
+"loop": true,
+"name": &"Populismo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_rt4eg")
+}],
+"loop": true,
+"name": &"Técnica",
+"speed": 5.0
+}]
+
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
 metadata/_edit_vertical_guides_ = [32.0]
 
@@ -265,3 +319,10 @@ offset_right = 2010.0
 offset_bottom = 65.0
 grow_horizontal = 0
 label_settings = SubResource("LabelSettings_fq0td")
+
+[node name="MascaraUI" type="AnimatedSprite2D" parent="." unique_id=70995788]
+position = Vector2(1843, 1011)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_mfo2n")
+animation = &"Default"
+script = ExtResource("16_2suug")
