@@ -9,6 +9,9 @@ var input: Vector2
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var flash_material: ShaderMaterial = sprite.material
 
+var menu_ui_scene = preload("res://scenes/menuMascaras.tscn")
+var menu_instancia: CanvasLayer
+
 @export var invincibility_time := 0.5
 var can_take_damage := true
 
@@ -20,7 +23,16 @@ func _ready() -> void:
 	MaskController.mask_changed.connect(
 		crowd_system.set_mask
 	)
+	if menu_ui_scene:
+		menu_instancia = menu_ui_scene.instantiate()
+		get_tree().root.add_child.call_deferred(menu_instancia)
+		menu_instancia.visible = false
 
+func _input(event):
+	if event.is_action_pressed("mask_UI"):
+		abrir_menu()
+	if event.is_action_released("mask_UI"):
+		fechar_menu()
 
 func get_input():
 	input.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -92,6 +104,17 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is CharacterBody2D:
 		take_damage()
 
+func abrir_menu():
+	if menu_instancia:
+		menu_instancia.visible = true
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		Engine.time_scale = 0.1
+		
+func fechar_menu():
+	if menu_instancia:
+		menu_instancia.visible = false
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		Engine.time_scale = 1.0
 
 func flash_white():
 	flash_material.set_shader_parameter("flash_strength", 1.0)
@@ -103,7 +126,6 @@ func flash_white():
 		0.0,
 		0.4
 	)
-
 
 func _on_button_sair_pressed() -> void:
 	pass # Replace with function body.
