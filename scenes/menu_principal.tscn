@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cqe6fg2lxn6ma" path="res://Sprites/Hud/govParaQm.png" id="5_w5ui5"]
 [ext_resource type="Texture2D" uid="uid://6cnl1044xh6w" path="res://Sprites/Hud/botaoClicado.png" id="6_2xgxd"]
 [ext_resource type="Texture2D" uid="uid://cwugcxt3shpcr" path="res://Sprites/LogoMask.png" id="6_qcl6i"]
+[ext_resource type="Texture2D" uid="uid://b50xkg75lydmb" path="res://Sprites/Hud/botaoMouse.png" id="8_2xgxd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_i85hu"]
 font = ExtResource("3_486ty")
@@ -21,11 +22,17 @@ texture = ExtResource("5_nxt0m")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lgh5n"]
 texture = ExtResource("6_2xgxd")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hucf5"]
+texture = ExtResource("8_2xgxd")
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nxt0m"]
 texture = ExtResource("5_nxt0m")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2xgxd"]
 texture = ExtResource("6_2xgxd")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jaljy"]
+texture = ExtResource("8_2xgxd")
 
 [node name="MenuPrincipal" type="Control" unique_id=272785725]
 layout_mode = 3
@@ -79,6 +86,7 @@ theme_override_fonts/font = ExtResource("3_486ty")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_8k4fm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lgh5n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hucf5")
 text = "Candidatar-se"
 autowrap_trim_flags = 0
 
@@ -94,6 +102,7 @@ theme_override_fonts/font = ExtResource("3_486ty")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_nxt0m")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2xgxd")
+theme_override_styles/hover = SubResource("StyleBoxTexture_jaljy")
 text = "Sair"
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
