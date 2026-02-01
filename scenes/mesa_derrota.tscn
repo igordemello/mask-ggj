@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://crej16yfxmcyx"]
 
 [ext_resource type="Script" uid="uid://dalwixr3col6v" path="res://script/mesa_derrota.gd" id="1_eg44x"]
-[ext_resource type="Texture2D" uid="uid://jjcet2b8xjhs" path="res://Sprites/fundo mesa vitoria.png" id="2_eg44x"]
+[ext_resource type="Texture2D" uid="uid://buyvrk2xhflrq" path="res://Sprites/fundo mesa derrota.png" id="1_jw5jb"]
 [ext_resource type="PackedScene" uid="uid://csmkl3xg5f7lb" path="res://scenes/jornal.tscn" id="2_skcym"]
 [ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="4_gvap3"]
 
@@ -69,9 +69,9 @@ _data = {
 [node name="Node2D" type="Node2D" unique_id=167741810]
 script = ExtResource("1_eg44x")
 
-[node name="FundoMesaDerrota" type="Sprite2D" parent="." unique_id=29575504]
+[node name="FundoMesaDerrota2" type="Sprite2D" parent="." unique_id=824551651]
 position = Vector2(960, 540)
-texture = ExtResource("2_eg44x")
+texture = ExtResource("1_jw5jb")
 
 [node name="jornal" parent="." unique_id=933936305 instance=ExtResource("2_skcym")]
 position = Vector2(826.00006, -479)

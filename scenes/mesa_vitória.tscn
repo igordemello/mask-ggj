@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://d2jqjidur87dk"]
 
 [ext_resource type="Script" uid="uid://dalwixr3col6v" path="res://script/mesa_derrota.gd" id="1_2lmyy"]
-[ext_resource type="Texture2D" uid="uid://buyvrk2xhflrq" path="res://Sprites/fundo mesa derrota.png" id="2_4txei"]
+[ext_resource type="Texture2D" uid="uid://jjcet2b8xjhs" path="res://Sprites/fundo mesa vitoria.png" id="2_2lmyy"]
 [ext_resource type="PackedScene" uid="uid://csmkl3xg5f7lb" path="res://scenes/jornal.tscn" id="3_g1xfk"]
+[ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="4_4txei"]
 
 [sub_resource type="Animation" id="Animation_skcym"]
 length = 2.0
@@ -67,10 +68,11 @@ _data = {
 
 [node name="Node2D" type="Node2D" unique_id=167741810]
 script = ExtResource("1_2lmyy")
+metadata/_edit_vertical_guides_ = [-1261.0]
 
-[node name="FundoMesaDerrota" type="Sprite2D" parent="." unique_id=29575504]
+[node name="FundoMesaDerrota2" type="Sprite2D" parent="." unique_id=1485445009]
 position = Vector2(960, 540)
-texture = ExtResource("2_4txei")
+texture = ExtResource("2_2lmyy")
 
 [node name="jornal" parent="." unique_id=933936305 instance=ExtResource("3_g1xfk")]
 position = Vector2(826.00006, -479)
@@ -79,3 +81,16 @@ scale = Vector2(0.51, 0.51)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288410818]
 libraries/ = SubResource("AnimationLibrary_gvap3")
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=1568220732]
+custom_minimum_size = Vector2(80, 80)
+offset_left = 839.0
+offset_top = 953.0
+offset_right = 1081.0
+offset_bottom = 1033.0
+theme_override_fonts/font = ExtResource("4_4txei")
+theme_override_font_sizes/font_size = 33
+text = "Menu principal"
+flat = true
+
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

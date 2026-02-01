@@ -7,8 +7,9 @@ func _ready() -> void:
 	
 	await animation_player.animation_finished
 	
-	$BotaoReiniciar.visible = true
-	$BotaoMenu.visible = true
+	if $BotaoReiniciar:
+		$BotaoReiniciar.visible = true
+		$BotaoMenu.visible = true
 
 
 func _on_botao_reiniciar_pressed() -> void:
