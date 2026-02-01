@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://bf13ko46pwk0o" path="res://script/barras.gd" id="1_e7ikl"]
 [ext_resource type="Texture2D" uid="uid://b3apjff05jw3y" path="res://Sprites/Vida/vidaCheia.png" id="1_pir4a"]
 [ext_resource type="Texture2D" uid="uid://c0olmm7usp4p5" path="res://Sprites/Vida/vidaVazia.png" id="2_e7ikl"]
-[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaBoa.png" id="4_d8d52"]
+[ext_resource type="Texture2D" uid="uid://ds8s0pvlv3yqe" path="res://Sprites/Hud/eticaBoa.png" id="4_d8d52"]
 [ext_resource type="Script" uid="uid://ce0c867h0npe0" path="res://script/barra_etica.gd" id="4_ex8sk"]
-[ext_resource type="Texture2D" path="res://Sprites/Barras/barracheiadotamanhocerto.png" id="5_06xbh"]
-[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaNeutra.png" id="5_lbldr"]
-[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaRuim.png" id="6_lbldr"]
-[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaVazia.png" id="7_vsg1l"]
+[ext_resource type="Texture2D" uid="uid://lyjwx31q3gel" path="res://Sprites/Hud/barracheiadotamanhocerto.png" id="5_06xbh"]
+[ext_resource type="Texture2D" uid="uid://br7lu2yox1xy" path="res://Sprites/Hud/eticaNeutra.png" id="5_lbldr"]
+[ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Hud/eticaRuim.png" id="6_lbldr"]
+[ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Hud/eticaVazia.png" id="7_vsg1l"]
+[ext_resource type="Script" uid="uid://cufqcq5p3feet" path="res://votos.gd" id="10_fq0td"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1yg"]
 animations = [{
@@ -194,6 +195,9 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="LabelSettings" id="LabelSettings_fq0td"]
+font_size = 40
+
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
 metadata/_edit_vertical_guides_ = [32.0]
 
@@ -243,4 +247,21 @@ texture_progress = ExtResource("5_06xbh")
 
 [node name="barra_cima" type="AnimatedSprite2D" parent="barra_etica" unique_id=80083429]
 sprite_frames = SubResource("SpriteFrames_fj2ak")
-animation = &"ruim"
+animation = &"neutra"
+
+[node name="Votos" type="Control" parent="." unique_id=922745174]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("10_fq0td")
+
+[node name="label_votos" type="Label" parent="Votos" unique_id=64033136]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1723.0
+offset_top = 10.0
+offset_right = 2010.0
+offset_bottom = 65.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_fq0td")

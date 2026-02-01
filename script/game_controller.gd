@@ -2,10 +2,20 @@ extends Node
 
 var vidas: int = 3 # se chegar a zero é aquela derrota
 var etica: float = 100
-var votos: float = 0.5
 var causa_da_morte : String = "" # Para saber qual manchete mostrar
 
 signal etica_alterada(value)
+
+var votos_atuais : int = 0
+signal votos_alterados(nova_qtd) # Avisa quando a quantidade muda
+
+func adicionar_voto(qtd: int):
+	votos_atuais += qtd
+	votos_alterados.emit(votos_atuais) # Dispara o aviso
+	
+	# Checa vitória
+	#if votos_atuais >= 100: # Exemplo de meta
+		#vencer()
 
 func etica_gastar(qtd: float):
 	etica = max(0, etica - qtd)
