@@ -1,9 +1,15 @@
 [gd_scene format=3 uid="uid://c7tbdhdw6o63n"]
 
 [ext_resource type="Script" uid="uid://voulfxpbqdvt" path="res://script/crowd_agent.gd" id="1_ptrki"]
+[ext_resource type="Shader" uid="uid://cc2a72pm3avt0" path="res://shaders/player_hit.gdshader" id="2_esi2g"]
 [ext_resource type="Texture2D" uid="uid://clackmn78gd55" path="res://assets/inimigo1_run.png" id="2_w8vvl"]
 [ext_resource type="Texture2D" uid="uid://dnhfh5wpxqyub" path="res://assets/inimigo2_run.png" id="3_qt0yl"]
 [ext_resource type="Texture2D" uid="uid://7b4ywkq23eld" path="res://assets/inimigo3_run.png" id="4_esi2g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hy0gt"]
+resource_local_to_scene = true
+shader = ExtResource("2_esi2g")
+shader_parameter/flash_strength = 0.09200000437
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xis0x"]
 atlas = ExtResource("2_w8vvl")
@@ -119,6 +125,7 @@ script = ExtResource("1_ptrki")
 separation_radius = 100.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1247641417]
+material = SubResource("ShaderMaterial_hy0gt")
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_hy0gt")
 animation = &"3"

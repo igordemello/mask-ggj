@@ -17,11 +17,16 @@ var jornal_descricao := ""
 
 func adicionar_voto(qtd: int):
 	votos_atuais += qtd
-	votos_alterados.emit(votos_atuais) # Dispara o aviso
+	votos_alterados.emit(votos_atuais)
+	checaVitoria()
 	
-	# Checa vitória
-	#if votos_atuais >= 100: # Exemplo de meta
-		#vencer()
+func checaVitoria():
+	if votos_atuais >= 10000:
+		vencer()
+		
+func vencer():
+	print("Passou de fase")
+	pass
 
 func etica_gastar(qtd: float):
 	etica = max(0, etica - qtd)

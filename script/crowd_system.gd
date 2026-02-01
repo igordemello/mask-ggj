@@ -108,39 +108,41 @@ func _process(delta: float) -> void:
 func update_field():
 	field.clear()
 	for a in agents:
-		field.add_density(a.global_position)
+		if a != null:
+			field.add_density(a.global_position)
 
 func apply_field_to_agents():
 	for a in agents:
-		if a.frozen:
-			continue
-		var to_player = player.global_position - a.global_position
-		var force := Vector2.ZERO
+		if a != null:
+			if a.frozen:
+				continue
+			var to_player = player.global_position - a.global_position
+			var force := Vector2.ZERO
 
 		# movimento base (não quebra nada)
-		if to_player.length() > 24:
-			force += to_player.normalized() * agent_speed
+			if to_player.length() > 24:
+				force += to_player.normalized() * agent_speed
 
 		# separação
-		var neighbors = get_neighbors(a)
-		if randf() < 0.4:
-			force += a.get_separation_force(neighbors)
+			var neighbors = get_neighbors(a)
+			if randf() < 0.4:
+				force += a.get_separation_force(neighbors)
 
 		# >>> POLARIZAÇÃO <<<
 		# POLARIZAÇÃO - só aplica se estiver ativa
-		if current_mask == MaskController.MaskType.POLARIZACAO and polarizacao_active:
-			force += get_polarizacao_force(a)
+			if current_mask == MaskController.MaskType.POLARIZACAO and polarizacao_active:
+				force += get_polarizacao_force(a)
 		# Se a polarização acabou mas a máscara ainda está ativa, não aplica força lateral
-		elif current_mask == MaskController.MaskType.POLARIZACAO and not polarizacao_active:
+			elif current_mask == MaskController.MaskType.POLARIZACAO and not polarizacao_active:
 			# Apenas a força normal em direção ao player
-			if to_player.length() > 24:
-				force = to_player.normalized() * agent_speed
+				if to_player.length() > 24:
+					force = to_player.normalized() * agent_speed
 
-		var max_speed := agent_speed
-		if polarizacao_active:
-			max_speed = agent_speed * 2.5  # ajuste fino aqui
+			var max_speed := agent_speed
+			if polarizacao_active:
+				max_speed = agent_speed * 2.5  # ajuste fino aqui
 
-		a.velocity = force.limit_length(max_speed)
+			a.velocity = force.limit_length(max_speed)
 
 
 func get_neighbors(agent):
@@ -222,10 +224,11 @@ func get_cell(pos: Vector2) -> Vector2i:
 func rebuild_spatial_hash():
 	spatial_hash.clear()
 	for a in agents:
-		var cell := get_cell(a.global_position)
-		if not spatial_hash.has(cell):
-			spatial_hash[cell] = []
-		spatial_hash[cell].append(a)
+		if a != null:
+			var cell := get_cell(a.global_position)
+			if not spatial_hash.has(cell):
+				spatial_hash[cell] = []
+			spatial_hash[cell].append(a)
 
 
 
