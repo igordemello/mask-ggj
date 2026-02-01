@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0jjn5b4e8jc3"
-path="res://.godot/imported/ChatGPT Image 31 de jan. de 2026, 23_08_14.png-4e26e89168290857c8dc7c99fe2a3368.ctex"
+uid="uid://buyvrk2xhflrq"
+path="res://.godot/imported/fundo mesa derrota.png-d2c968183dee5e8cef2023a932e79472.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/ChatGPT Image 31 de jan. de 2026, 23_08_14.png"
-dest_files=["res://.godot/imported/ChatGPT Image 31 de jan. de 2026, 23_08_14.png-4e26e89168290857c8dc7c99fe2a3368.ctex"]
+source_file="res://Sprites/fundo mesa derrota.png"
+dest_files=["res://.godot/imported/fundo mesa derrota.png-d2c968183dee5e8cef2023a932e79472.ctex"]
 
 [params]
 

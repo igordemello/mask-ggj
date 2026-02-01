@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://csmkl3xg5f7lb"]
+
+[ext_resource type="Script" uid="uid://bja0xlms2rao0" path="res://script/jornal.gd" id="1_gg752"]
+[ext_resource type="Texture2D" uid="uid://bb0fvbq7b7k8b" path="res://assets/jornal.png" id="1_grv5m"]
+[ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="2_d3sdf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gg752"]
+font = ExtResource("2_d3sdf")
+font_size = 124
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d3sdf"]
+font = ExtResource("2_d3sdf")
+font_size = 52
+font_color = Color(0, 0, 0, 1)
+
+[node name="jornal" type="Node2D" unique_id=933936305]
+script = ExtResource("1_gg752")
+
+[node name="Jornal" type="Sprite2D" parent="." unique_id=2143563253]
+texture = ExtResource("1_grv5m")
+
+[node name="titulo" type="Label" parent="." unique_id=642858633]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -367.0
+offset_top = -332.0
+offset_right = 399.0
+offset_bottom = -215.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Título"
+label_settings = SubResource("LabelSettings_gg752")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="descricao" type="Label" parent="." unique_id=1825139438]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -166.0
+offset_right = 379.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " sexo drogas e maconha"
+label_settings = SubResource("LabelSettings_d3sdf")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

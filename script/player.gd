@@ -16,6 +16,10 @@ var menu_ui_scene = preload("res://scenes/menuMascaras.tscn")
 var menu_instancia: CanvasLayer
 
 @export var invincibility_time := 0.5
+@export var bastidores_bullet_scene: PackedScene
+
+var bastidores_cd := false
+@export var bastidores_cooldown_time := 4.0
 
 signal damaged
 
@@ -60,13 +64,16 @@ func _physics_process(delta: float):
 			target_rotation,
 			delta * ROTATION_SPEED
 		)
+		
+	if Input.is_action_just_pressed("use_mask"):
+		if MaskController.current_mask == MaskController.MaskType.BASTIDORES:
+			fire_bastidores_pattern()
 
 func _on_mask_changed(_mask_id: int):
 	is_playing_priority_anim = true
 	
 	sprite.frame = 0
 	sprite.play("mask")
-	flash_white()
 	
 	if not sprite.animation_finished.is_connected(_on_priority_anim_finished):
 		sprite.animation_finished.connect(_on_priority_anim_finished, CONNECT_ONE_SHOT)
@@ -115,3 +122,24 @@ func fechar_menu():
 		menu_instancia.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Engine.time_scale = 1.0
+		
+func fire_bastidores_pattern():
+	if bastidores_cd:
+		return
+
+	bastidores_cd = true
+
+	var bullet_count := 24
+	var angle_step := TAU / bullet_count
+
+	for i in bullet_count:
+		var angle := i * angle_step
+		var dir := Vector2(cos(angle), sin(angle))
+
+		var bullet = bastidores_bullet_scene.instantiate()
+		bullet.global_position = global_position
+		bullet.direction = dir
+		get_tree().current_scene.add_child(bullet)
+
+	await get_tree().create_timer(bastidores_cooldown_time).timeout
+	bastidores_cd = false

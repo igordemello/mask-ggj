@@ -15,4 +15,4 @@ func _on_votos_alterados(nova_qtd):
 
 func _atualizar_texto_votos(valor):
 	# Substitui o texto usando formatação de String
-	label_votos.text = str(valor) + " votos"
+	label_votos.text = str(valor)

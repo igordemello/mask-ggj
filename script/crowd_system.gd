@@ -37,6 +37,10 @@ var field_timer := 0.0
 @export var congelamento_duration := 6.0
 
 
+@export var desaceleracao_multiplier := 0.3
+@export var desaceleracao_duration := 6.0
+
+
 # Adicione essas variáveis para controlar a polarização
 var polarizacao_active := false
 var polarizacao_timer := 0.0
@@ -46,18 +50,6 @@ var current_mask := MaskController.MaskType.NONE
 
 func set_mask(mask: int):
 	current_mask = mask
-
-	if mask == MaskController.MaskType.POPULISMO:
-		apply_populismo_pulse()
-		
-	if mask == MaskController.MaskType.POLARIZACAO:
-		assign_polarization_sides()
-		disable_collisions_temporarily()
-		polarizacao_active = true
-		polarizacao_timer = polarizacao_duration
-		
-	if mask == MaskController.MaskType.TECNICA:
-		apply_congelamento()
 
 	
 	if mask != MaskController.MaskType.POLARIZACAO:
@@ -88,12 +80,31 @@ func _physics_process(delta):
 	if polarizacao_active:
 		polarizacao_timer -= delta
 		if polarizacao_timer <= 0.0:
+			enable_collisions_back()
 			polarizacao_active = false
 			# Quando acabar o tempo, força o retorno ao comportamento normal
 			for a in agents:
 				if is_instance_valid(a):
 					a.polarization_side = 0  # Reseta o lado
-	
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("use_mask"):
+		if current_mask == MaskController.MaskType.POPULISMO:
+			apply_populismo_pulse()
+			
+		if current_mask == MaskController.MaskType.POLARIZACAO:
+			assign_polarization_sides()
+			disable_collisions_temporarily()
+			polarizacao_active = true
+			polarizacao_timer = polarizacao_duration
+			
+		if current_mask == MaskController.MaskType.TECNICA:
+			apply_congelamento()
+			
+		if current_mask == MaskController.MaskType.DISCURSO_VAZIO:
+			apply_desaceleracao()
+
+
 func update_field():
 	field.clear()
 	for a in agents:
@@ -295,3 +306,9 @@ func apply_congelamento():
 
 	for i in range(half):
 		valid_agents[i].freeze(congelamento_duration)
+
+
+func apply_desaceleracao():
+	for a in agents:
+		if is_instance_valid(a) and not a.dying:
+			a.apply_slow(desaceleracao_multiplier, desaceleracao_duration)

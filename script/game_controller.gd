@@ -12,6 +12,9 @@ signal votos_alterados(nova_qtd) # Avisa quando a quantidade muda
 
 var pausado := false
 
+var jornal_titulo := ""
+var jornal_descricao := ""
+
 func adicionar_voto(qtd: int):
 	votos_atuais += qtd
 	votos_alterados.emit(votos_atuais) # Dispara o aviso

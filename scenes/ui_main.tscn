@@ -9,12 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://br7lu2yox1xy" path="res://Sprites/Hud/eticaNeutra.png" id="5_lbldr"]
 [ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Hud/eticaRuim.png" id="6_lbldr"]
 [ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Hud/eticaVazia.png" id="7_vsg1l"]
-[ext_resource type="Script" path="res://votos.gd" id="10_fq0td"]
+[ext_resource type="Script" uid="uid://cufqcq5p3feet" path="res://votos.gd" id="10_fq0td"]
 [ext_resource type="Texture2D" uid="uid://dtuwacaqf1owe" path="res://Sprites/Hud/pauseMenu.png" id="11_1n2n3"]
 [ext_resource type="Texture2D" uid="uid://bf4wl1v0xdesm" path="res://Sprites/Mascaras/Bastidores.png" id="11_hajj7"]
 [ext_resource type="Script" uid="uid://3dnejtsr8vik" path="res://scenes/pause.gd" id="11_srbhr"]
 [ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="12_2suug"]
 [ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="12_dvmt8"]
+[ext_resource type="Texture2D" uid="uid://dyibffhp5vrg3" path="res://Sprites/Hud/votos.png" id="12_mfo2n"]
 [ext_resource type="Texture2D" uid="uid://dk35i65scy3r4" path="res://Sprites/Mascaras/Polarização-1.png" id="13_n2f4j"]
 [ext_resource type="Texture2D" uid="uid://damj4culqd1kn" path="res://Sprites/Mascaras/Populismo-1.png" id="14_jgeat"]
 [ext_resource type="Texture2D" uid="uid://cabt82v3bjtwq" path="res://Sprites/Mascaras/Tecnica.png" id="15_rt4eg"]
@@ -205,7 +206,8 @@ animations = [{
 }]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fq0td"]
-font_size = 40
+font = ExtResource("12_dvmt8")
+font_size = 75
 
 [sub_resource type="LabelSettings" id="LabelSettings_srbhr"]
 font = ExtResource("12_dvmt8")
@@ -261,6 +263,7 @@ animations = [{
 
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
 metadata/_edit_vertical_guides_ = [32.0]
+metadata/_edit_horizontal_guides_ = [71.0]
 
 [node name="Barras_martelos" type="Control" parent="." unique_id=261720633]
 layout_mode = 3
@@ -320,12 +323,20 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = 1723.0
-offset_top = 10.0
-offset_right = 2010.0
-offset_bottom = 65.0
+offset_left = 1802.0
+offset_top = 30.0
+offset_right = 1903.0
+offset_bottom = 114.0
 grow_horizontal = 0
+text = "0"
 label_settings = SubResource("LabelSettings_fq0td")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Votos" type="Sprite2D" parent="Votos" unique_id=1134065918]
+position = Vector2(1848, 102.99999)
+scale = Vector2(2.53125, 2.53125)
+texture = ExtResource("12_mfo2n")
 
 [node name="Pause" type="Control" parent="." unique_id=982114736]
 visible = false

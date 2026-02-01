@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dawj2qvuunnyd"]
 
-[ext_resource type="Shader" uid="uid://b6vbqhfnngvb8" path="res://script/blur.gdshader" id="1_2ne1g"]
+[ext_resource type="Shader" path="res://script/blur.gdshader" id="1_2ne1g"]
 [ext_resource type="Script" uid="uid://n3nh5oko3j44" path="res://script/menuMascaras.gd" id="1_es1yg"]
 [ext_resource type="Texture2D" uid="uid://bmogs72qaljwd" path="res://Sprites/Mascaras/DiscursoVazio-1.png" id="2_m7knh"]
 [ext_resource type="Texture2D" uid="uid://dk35i65scy3r4" path="res://Sprites/Mascaras/Polarização-1.png" id="3_rjju5"]

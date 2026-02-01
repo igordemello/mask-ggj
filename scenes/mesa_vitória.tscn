@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://d2jqjidur87dk"]
+
+[ext_resource type="Script" uid="uid://dalwixr3col6v" path="res://script/mesa_derrota.gd" id="1_2lmyy"]
+[ext_resource type="Texture2D" uid="uid://buyvrk2xhflrq" path="res://Sprites/fundo mesa derrota.png" id="2_4txei"]
+[ext_resource type="PackedScene" uid="uid://csmkl3xg5f7lb" path="res://scenes/jornal.tscn" id="3_g1xfk"]
+
+[sub_resource type="Animation" id="Animation_skcym"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jornal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9296825),
+"transitions": PackedFloat32Array(5.0982413, 5.0982413),
+"update": 0,
+"values": [Vector2(826.00006, -479), Vector2(960, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("jornal:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.9296825),
+"transitions": PackedFloat32Array(4.1410575, 4.1410575),
+"update": 0,
+"values": [-15.707963267948966, 6.117379]
+}
+
+[sub_resource type="Animation" id="Animation_eg44x"]
+resource_name = "entry_jornal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("jornal:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(3.1383355, 3.1383355),
+"update": 0,
+"values": [Vector2(740, -872), Vector2(948, 540)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("jornal:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(3.4822018, 3.4822018),
+"update": 0,
+"values": [-15.707963267948966, 5.9393554445367025]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gvap3"]
+_data = {
+&"RESET": SubResource("Animation_skcym"),
+&"entry_jornal": SubResource("Animation_eg44x")
+}
+
+[node name="Node2D" type="Node2D" unique_id=167741810]
+script = ExtResource("1_2lmyy")
+
+[node name="FundoMesaDerrota" type="Sprite2D" parent="." unique_id=29575504]
+position = Vector2(960, 540)
+texture = ExtResource("2_4txei")
+
+[node name="jornal" parent="." unique_id=933936305 instance=ExtResource("3_g1xfk")]
+position = Vector2(826.00006, -479)
+rotation = -15.707963
+scale = Vector2(0.51, 0.51)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288410818]
+libraries/ = SubResource("AnimationLibrary_gvap3")

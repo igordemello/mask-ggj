@@ -19,6 +19,9 @@ var collision_disabled := false
 var frozen := false
 var frozen_timer := 0.0
 
+var speed_multiplier := 1.0
+var slow_timer := 0.0
+
 func disable_agent_collision():
 	if collision_disabled:
 		return
@@ -65,6 +68,13 @@ func _physics_process(delta):
 		velocity = knockback_velocity
 	else:
 		velocity *= 0.85
+
+	if slow_timer > 0.0:
+		slow_timer -= delta
+		if slow_timer <= 0.0:
+			clear_slow()
+
+	velocity *= speed_multiplier
 
 	move_and_slide()
 
@@ -127,4 +137,14 @@ func freeze(duration: float):
 func unfreeze():
 	frozen = false
 	frozen_timer = 0.0
+	sprite.modulate = Color.WHITE
+
+func apply_slow(multiplier: float, duration: float):
+	speed_multiplier = multiplier
+	slow_timer = duration
+	sprite.modulate = Color(0.8, 0.8, 0.8) # dessaturado
+
+func clear_slow():
+	speed_multiplier = 1.0
+	slow_timer = 0.0
 	sprite.modulate = Color.WHITE
