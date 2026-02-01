@@ -1,5 +1,9 @@
 extends Control
 
+func _ready():
+	# Substitua 'BotaoJogar' pelo nome exato do seu nó no menu
+	$VBoxContainer/BotaoJogar.grab_focus()
+	
 # Função que roda quando clicamos no botão de jogar
 func _on_botao_jogar_pressed():
 	# Isso carrega a sua cena que aparece no print!

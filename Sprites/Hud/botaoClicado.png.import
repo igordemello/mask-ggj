@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bqlo1suxj2o8e"
-path="res://.godot/imported/eticaRuim.png-260e035b18d0ab06e0c2c18b3f644c2f.ctex"
+uid="uid://6cnl1044xh6w"
+path="res://.godot/imported/botaoClicado.png-fdd2d63ef2749aad95f8800fca46ff61.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Barras/eticaRuim.png"
-dest_files=["res://.godot/imported/eticaRuim.png-260e035b18d0ab06e0c2c18b3f644c2f.ctex"]
+source_file="res://Sprites/Hud/botaoClicado.png"
+dest_files=["res://.godot/imported/botaoClicado.png-fdd2d63ef2749aad95f8800fca46ff61.ctex"]
 
 [params]
 

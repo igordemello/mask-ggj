@@ -32,3 +32,4 @@ color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(1467, 135, 1477, 1001, 1350, 1131, -40, 1107, -61, -68, 1379, -60)
 
 [node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_tefeu")]
+visible = false

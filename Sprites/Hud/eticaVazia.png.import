@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lyjwx31q3gel"
-path="res://.godot/imported/barracheiadotamanhocerto.png-6be5159fcff36722acfa17158c026e95.ctex"
+uid="uid://75cg0o4cseda"
+path="res://.godot/imported/eticaVazia.png-b63f541e14f496c8684bf6c03a97447e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Barras/barracheiadotamanhocerto.png"
-dest_files=["res://.godot/imported/barracheiadotamanhocerto.png-6be5159fcff36722acfa17158c026e95.ctex"]
+source_file="res://Sprites/Hud/eticaVazia.png"
+dest_files=["res://.godot/imported/eticaVazia.png-b63f541e14f496c8684bf6c03a97447e.ctex"]
 
 [params]
 

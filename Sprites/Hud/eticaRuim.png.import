@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds8s0pvlv3yqe"
-path="res://.godot/imported/eticaBoa.png-46ef4c02aff371abbec0f58378d8250f.ctex"
+uid="uid://bqlo1suxj2o8e"
+path="res://.godot/imported/eticaRuim.png-3ca9161ae26d18c78f9d15919254a1f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Barras/eticaBoa.png"
-dest_files=["res://.godot/imported/eticaBoa.png-46ef4c02aff371abbec0f58378d8250f.ctex"]
+source_file="res://Sprites/Hud/eticaRuim.png"
+dest_files=["res://.godot/imported/eticaRuim.png-3ca9161ae26d18c78f9d15919254a1f9.ctex"]
 
 [params]
 
