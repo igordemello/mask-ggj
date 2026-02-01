@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bo4ujw3fhctr5" path="res://assets/player-idle.png" id="3_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://b7d1ew1lc7lb7" path="res://assets/player-pegarmascara.png" id="4_tuyoq"]
 [ext_resource type="AudioStream" uid="uid://te30s3r7ac7o" path="res://sounds/judgehammer.mp3" id="7_fjrip"]
+[ext_resource type="AudioStream" uid="uid://b23lbbyukvqph" path="res://sounds/footsteps_generic.mp3" id="8_smehm"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
 shader = ExtResource("2_qhqgy")
@@ -151,5 +152,7 @@ shape = SubResource("CircleShape2D_qhqgy")
 stream = ExtResource("7_fjrip")
 
 [node name="SomAndar" type="AudioStreamPlayer2D" parent="." unique_id=480857630]
+stream = ExtResource("8_smehm")
+volume_db = 3.838
 
 [connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

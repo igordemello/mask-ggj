@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://gq3w65tcvab4" path="res://script/crowd_field.gd" id="3_sugp2"]
 [ext_resource type="PackedScene" uid="uid://c7tbdhdw6o63n" path="res://scenes/crowd_agent.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://cuqhye63o2nok" path="res://scenes/ui_main.tscn" id="6_tefeu"]
+[ext_resource type="AudioStream" uid="uid://eje8s7n7368y" path="res://sounds/crowd_angry.mp3" id="7_tipki"]
 
 [node name="main" type="Node2D" unique_id=1703749042]
 
@@ -31,5 +32,9 @@ script = ExtResource("3_sugp2")
 [node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=1829195952]
 color = Color(1, 1, 1, 0)
 polygon = PackedVector2Array(182, 153, 759, 128, 769, 1007, 116, 1010)
+
+[node name="SomMultidao" type="AudioStreamPlayer2D" parent="CrowdSystem" unique_id=509291616]
+stream = ExtResource("7_tipki")
+volume_db = -4.875
 
 [node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_tefeu")]
