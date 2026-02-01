@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dalwixr3col6v" path="res://script/mesa_derrota.gd" id="1_eg44x"]
 [ext_resource type="Texture2D" uid="uid://jjcet2b8xjhs" path="res://Sprites/fundo mesa vitoria.png" id="2_eg44x"]
 [ext_resource type="PackedScene" uid="uid://csmkl3xg5f7lb" path="res://scenes/jornal.tscn" id="2_skcym"]
+[ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="4_gvap3"]
 
 [sub_resource type="Animation" id="Animation_skcym"]
 length = 2.0
@@ -79,3 +80,31 @@ scale = Vector2(0.51, 0.51)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=288410818]
 libraries/ = SubResource("AnimationLibrary_gvap3")
+
+[node name="BotaoReiniciar" type="Button" parent="." unique_id=1131983452]
+visible = false
+custom_minimum_size = Vector2(250, 80)
+offset_left = 584.0
+offset_top = 956.0
+offset_right = 870.0
+offset_bottom = 1036.0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_gvap3")
+theme_override_font_sizes/font_size = 33
+text = "Tentar novamente"
+flat = true
+
+[node name="BotaoMenu" type="Button" parent="." unique_id=1087383455]
+visible = false
+custom_minimum_size = Vector2(80, 80)
+offset_left = 1105.0
+offset_top = 953.0
+offset_right = 1347.0
+offset_bottom = 1033.0
+theme_override_fonts/font = ExtResource("4_gvap3")
+theme_override_font_sizes/font_size = 33
+text = "Menu principal"
+flat = true
+
+[connection signal="pressed" from="BotaoReiniciar" to="." method="_on_botao_reiniciar_pressed"]
+[connection signal="pressed" from="BotaoMenu" to="." method="_on_botao_menu_pressed"]

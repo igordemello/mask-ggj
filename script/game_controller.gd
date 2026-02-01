@@ -34,7 +34,7 @@ func etica_gastar(qtd: float):
 	
 	# Condição de Derrota 2: Ética chega a 0
 	if etica <= 0:
-		morrer("etica")
+		morrer("Desmascarado!", "Após tentar subornar até o próprio reflexo, Hasto cai em desonra pública. Eleitores sugerem que ele tente a sorte como síndico de presídio.")
 
 func etica_recuperar(qtd: float):
 	etica = min(100, etica + qtd)
@@ -43,8 +43,9 @@ func etica_recuperar(qtd: float):
 func etica_pode_gastar(qtd) -> bool:
 	return etica >= qtd
 
-func morrer(motivo: String):
-	causa_da_morte = motivo
-	get_tree().paused = true
+func morrer(titulo: String, desc: String):
+	jornal_titulo = titulo
+	jornal_descricao = desc
+	#get_tree().paused = true
 	# call_deferred é mais seguro para mudar de cena durante colisões
-	get_tree().call_deferred("change_scene_to_file", "res://scenes/telaDerrota.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/mesa_derrota.tscn")

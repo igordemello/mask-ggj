@@ -105,7 +105,7 @@ func take_damage():
 	som_dano.play()
 	
 	if GameController.vidas <= 0:
-		GameController.morrer("vida_0") 
+		GameController.morrer("Inelegível!", "Após se envolver em escândalos e brigas com eleitores, foi determinada a inegibilidade de Hasto.") 
 		return
 
 	can_take_damage = false

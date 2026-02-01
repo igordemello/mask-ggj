@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cd1576itq1e6q"]
+[gd_scene format=3 uid="uid://b07e4x0iiam8m"]
 
 [ext_resource type="Script" uid="uid://dx1obik0orewq" path="res://script/tela_derrota.gd" id="1_6w31q"]
 [ext_resource type="AudioStream" uid="uid://te30s3r7ac7o" path="res://sounds/judgehammer.mp3" id="2_yypdl"]
