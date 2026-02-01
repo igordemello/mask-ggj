@@ -119,6 +119,7 @@ radius = 8.0
 radius = 8.062258
 
 [node name="player" type="CharacterBody2D" unique_id=727039025]
+scale = Vector2(2, 2)
 script = ExtResource("1_fvtld")
 
 [node name="sprite" type="AnimatedSprite2D" parent="." unique_id=1322198444]
@@ -129,7 +130,6 @@ sprite_frames = SubResource("SpriteFrames_xo3ru")
 animation = &"mask"
 autoplay = "idle"
 frame = 3
-frame_progress = 1.0
 frame_progress = 0.8662228
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
