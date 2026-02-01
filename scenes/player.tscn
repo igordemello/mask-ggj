@@ -128,7 +128,7 @@ scale = Vector2(0.38071895, 0.32843137)
 sprite_frames = SubResource("SpriteFrames_xo3ru")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.9781189
+frame_progress = 0.8662228
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
 zoom = Vector2(1.5, 1.5)

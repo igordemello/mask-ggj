@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://br7lu2yox1xy" path="res://Sprites/Hud/eticaNeutra.png" id="5_lbldr"]
 [ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Hud/eticaRuim.png" id="6_lbldr"]
 [ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Hud/eticaVazia.png" id="7_vsg1l"]
-[ext_resource type="Script" uid="uid://cufqcq5p3feet" path="res://votos.gd" id="10_fq0td"]
+[ext_resource type="Script" path="res://votos.gd" id="10_fq0td"]
+[ext_resource type="Texture2D" uid="uid://dtuwacaqf1owe" path="res://Sprites/Hud/pauseMenu.png" id="11_1n2n3"]
+[ext_resource type="Script" uid="uid://3dnejtsr8vik" path="res://scenes/pause.gd" id="11_srbhr"]
+[ext_resource type="FontFile" uid="uid://dq84nw3dbm5rp" path="res://assets/fonts/alagard.ttf" id="12_dvmt8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1yg"]
 animations = [{
@@ -198,6 +201,10 @@ animations = [{
 [sub_resource type="LabelSettings" id="LabelSettings_fq0td"]
 font_size = 40
 
+[sub_resource type="LabelSettings" id="LabelSettings_srbhr"]
+font = ExtResource("12_dvmt8")
+font_size = 148
+
 [node name="ui_main" type="CanvasLayer" unique_id=1427192611]
 metadata/_edit_vertical_guides_ = [32.0]
 
@@ -265,3 +272,55 @@ offset_right = 2010.0
 offset_bottom = 65.0
 grow_horizontal = 0
 label_settings = SubResource("LabelSettings_fq0td")
+
+[node name="Pause" type="Control" parent="." unique_id=982114736]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("11_srbhr")
+
+[node name="TextureRect" type="TextureRect" parent="Pause" unique_id=624532222]
+layout_mode = 0
+offset_right = 240.0
+offset_bottom = 135.0
+scale = Vector2(8, 8)
+texture = ExtResource("11_1n2n3")
+
+[node name="Label" type="Label" parent="Pause" unique_id=82007422]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -333.0
+offset_right = 273.0
+offset_bottom = -194.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Pausado"
+label_settings = SubResource("LabelSettings_srbhr")
+
+[node name="Button" type="Button" parent="Pause" unique_id=1249111683]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -15.5
+offset_right = 27.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_dvmt8")
+theme_override_font_sizes/font_size = 63
+text = "Voltar"
+flat = true
