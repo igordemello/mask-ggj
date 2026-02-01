@@ -14,7 +14,7 @@ texture = ExtResource("2_0wfyh")
 centered = false
 
 [node name="player" parent="." unique_id=727039025 instance=ExtResource("1_0wfyh")]
-position = Vector2(1780, 540)
+position = Vector2(958, 530)
 scale = Vector2(4, 4)
 
 [node name="CrowdSystem" type="Node2D" parent="." unique_id=1915152276]
@@ -22,14 +22,13 @@ script = ExtResource("3_jyhfs")
 agent_scene = ExtResource("4_tbgi4")
 neighbor_radius = 100.0
 dissipate_radius = 200.0
-initial_agent_count = 400
+initial_agent_count = 300
 
 [node name="CrowdField" type="Node2D" parent="CrowdSystem" unique_id=1599278310]
 script = ExtResource("3_sugp2")
 
 [node name="SpawnArea" type="Polygon2D" parent="CrowdSystem" unique_id=1303492935]
 color = Color(1, 1, 1, 0)
-polygon = PackedVector2Array(1467, 135, 1477, 1001, 1350, 1131, -40, 1107, -61, -68, 1379, -60)
+polygon = PackedVector2Array(699, 529, 714, 746, 922, 806, 1233, 733, 1266, 533, 1608, 539, 1621, 222, 1925, 677, 1477, 1001, 1350, 1131, 115, 1004, 171, 439, 319, 219, 510, 94, 1357, 3, 1602, -7, 1627, 112, 1508, 291, 1404, 414, 874, 329)
 
 [node name="ui_main" parent="." unique_id=1427192611 instance=ExtResource("6_tefeu")]
-visible = false
