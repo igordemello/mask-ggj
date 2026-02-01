@@ -34,6 +34,14 @@ var field_timer := 0.0
 @export var polarizacao_strength := 90000.0
 @export var polarizacao_forward_strength := 20.0
 
+@export var congelamento_duration := 6.0
+
+
+# Adicione essas variáveis para controlar a polarização
+var polarizacao_active := false
+var polarizacao_timer := 0.0
+@export var polarizacao_duration := 10.0  # tempo em segundos
+
 var current_mask := MaskController.MaskType.NONE
 
 func set_mask(mask: int):
@@ -45,6 +53,15 @@ func set_mask(mask: int):
 	if mask == MaskController.MaskType.POLARIZACAO:
 		assign_polarization_sides()
 		disable_collisions_temporarily()
+		polarizacao_active = true
+		polarizacao_timer = polarizacao_duration
+		
+	if mask == MaskController.MaskType.TECNICA:
+		apply_congelamento()
+
+	
+	if mask != MaskController.MaskType.POLARIZACAO:
+		enable_collisions_back()
 
 func _ready():
 	spawn_initial_crowd()
@@ -67,6 +84,16 @@ func _physics_process(delta):
 	rebuild_spatial_hash()
 	apply_field_to_agents()
 	
+	 # Controla o tempo da polarização
+	if polarizacao_active:
+		polarizacao_timer -= delta
+		if polarizacao_timer <= 0.0:
+			polarizacao_active = false
+			# Quando acabar o tempo, força o retorno ao comportamento normal
+			for a in agents:
+				if is_instance_valid(a):
+					a.polarization_side = 0  # Reseta o lado
+	
 func update_field():
 	field.clear()
 	for a in agents:
@@ -74,6 +101,8 @@ func update_field():
 
 func apply_field_to_agents():
 	for a in agents:
+		if a.frozen:
+			continue
 		var to_player = player.global_position - a.global_position
 		var force := Vector2.ZERO
 
@@ -87,10 +116,20 @@ func apply_field_to_agents():
 			force += a.get_separation_force(neighbors)
 
 		# >>> POLARIZAÇÃO <<<
-		if current_mask == MaskController.MaskType.POLARIZACAO:
+		# POLARIZAÇÃO - só aplica se estiver ativa
+		if current_mask == MaskController.MaskType.POLARIZACAO and polarizacao_active:
 			force += get_polarizacao_force(a)
+		# Se a polarização acabou mas a máscara ainda está ativa, não aplica força lateral
+		elif current_mask == MaskController.MaskType.POLARIZACAO and not polarizacao_active:
+			# Apenas a força normal em direção ao player
+			if to_player.length() > 24:
+				force = to_player.normalized() * agent_speed
 
-		a.velocity = force.limit_length(agent_speed)
+		var max_speed := agent_speed
+		if polarizacao_active:
+			max_speed = agent_speed * 2.5  # ajuste fino aqui
+
+		a.velocity = force.limit_length(max_speed)
 
 
 func get_neighbors(agent):
@@ -211,27 +250,48 @@ var polarization_points := [
 
 
 func get_polarizacao_force(agent) -> Vector2:
-	# direção até o player
 	var to_player = (player.global_position - agent.global_position).normalized()
-
-	# vetor lateral (perpendicular)
-	var lateral := Vector2(-to_player.y, to_player.x)
-
-	# escolhe lado
-	lateral *= agent.polarization_side
-
-	return (lateral * polarizacao_strength) + (to_player * polarizacao_forward_strength)
+	
+	# Cria uma força lateral baseada no lado do agente
+	var lateral_force := Vector2.ZERO
+	
+	# Força lateral mais intensa no início, depois diminui
+	var time_factor = 1.0
+	if polarizacao_timer < 2.0:  # Últimos 2 segundos, começa a reduzir
+		time_factor = polarizacao_timer / 2.0
+	
+	if agent.polarization_side == -1:  # Esquerda
+		lateral_force = Vector2(0, -1) * polarizacao_strength * time_factor
+	elif agent.polarization_side == 1:  # Direita
+		lateral_force = Vector2(0, 1) * polarizacao_strength * time_factor
+	
+	# Força em direção ao player (reduzida durante polarização)
+	var forward_force = to_player * polarizacao_forward_strength * 0.5
+	
+	return lateral_force + forward_force
 
 
 func disable_collisions_temporarily():
 	for a in agents:
 		a.disable_agent_collision()
-
-	var timer := get_tree().create_timer(10.0)
-	timer.timeout.connect(enable_collisions_back)
 	
 	
 func enable_collisions_back():
 	for a in agents:
 		if is_instance_valid(a):
 			a.enable_agent_collision()
+			a.polarization_side = 0
+
+func apply_congelamento():
+	var valid_agents := []
+
+	for a in agents:
+		if is_instance_valid(a) and not a.dying:
+			valid_agents.append(a)
+
+	valid_agents.shuffle()
+
+	var half := valid_agents.size() / 2
+
+	for i in range(half):
+		valid_agents[i].freeze(congelamento_duration)
