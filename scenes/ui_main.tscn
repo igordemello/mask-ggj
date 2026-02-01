@@ -386,3 +386,5 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_mfo2n")
 animation = &"Default"
 script = ExtResource("16_2suug")
+
+[connection signal="button_down" from="Pause/Button" to="Pause" method="_on_button_button_down"]

@@ -1,11 +1,27 @@
 extends Control
 
-	
-# Função que roda quando clicamos no botão de jogar
-func _on_botao_jogar_pressed():
-	# Isso carrega a sua cena que aparece no print!
-	get_tree().change_scene_to_file("res://scenes/main.tscn") 
+@onready var gov_para_qm: Sprite2D = $GovParaQm
 
-# Função que roda quando clicamos em sair
-func _on_botao_sair_pressed():
+func _ready() -> void:
+	gov_para_qm.modulate.a = 0.0
+
+func _on_botao_jogar_pressed() -> void:
+	var tween := create_tween()
+	tween.set_trans(Tween.TRANS_SINE)
+	tween.set_ease(Tween.EASE_OUT)
+
+	tween.tween_property(
+		gov_para_qm,
+		"modulate:a",
+		1.0,
+		0.8
+	)
+
+	await tween.finished
+
+	await get_tree().create_timer(3.0).timeout
+
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func _on_botao_sair_pressed() -> void:
 	get_tree().quit()

@@ -10,6 +10,8 @@ signal etica_alterada(value)
 var votos_atuais : int = 0
 signal votos_alterados(nova_qtd) # Avisa quando a quantidade muda
 
+var pausado := false
+
 func adicionar_voto(qtd: int):
 	votos_atuais += qtd
 	votos_alterados.emit(votos_atuais) # Dispara o aviso

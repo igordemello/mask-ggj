@@ -43,11 +43,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i85hu")
 
-[node name="GovParaQm" type="Sprite2D" parent="." unique_id=136629540]
-position = Vector2(960, 540)
-scale = Vector2(8, 8)
-texture = ExtResource("5_w5ui5")
-
 [node name="Menu" type="Sprite2D" parent="." unique_id=1888660966]
 position = Vector2(960, 540)
 scale = Vector2(8, 8)
@@ -104,6 +99,12 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_nxt0m")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_2xgxd")
 theme_override_styles/hover = SubResource("StyleBoxTexture_jaljy")
 text = "Sair"
+
+[node name="GovParaQm" type="Sprite2D" parent="." unique_id=136629540]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(960, 540)
+scale = Vector2(8, 8)
+texture = ExtResource("5_w5ui5")
 
 [connection signal="pressed" from="BotaoJogar" to="." method="_on_botao_jogar_pressed"]
 [connection signal="pressed" from="BotaoSair" to="." method="_on_botao_sair_pressed"]
