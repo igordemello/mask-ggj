@@ -68,12 +68,12 @@ func _on_area_mouse_exited(area_node):
 func executar_acao(nome_do_botao):
 	match nome_do_botao:
 		"Area2D":
-			print("Ação 1")
+			MaskController.equip_mask(5)
 		"Area2D2":
-			print("Ação 2")
+			MaskController.equip_mask(2)
 		"Area2D3":
-			print("Ação 3")
+			MaskController.equip_mask(3)
 		"Area2D4":
-			print("Ação 4")
+			MaskController.equip_mask(1)
 		"Area2D5":
-			print("Ação 5")
+			MaskController.equip_mask(4)

@@ -4,25 +4,25 @@ const SPEED = 300.0
 const ACELL = 2.0
 const ROTATION_SPEED := 8.0
 
-var input: Vector2
-
 @onready var sprite: AnimatedSprite2D = $sprite
 @onready var flash_material: ShaderMaterial = sprite.material
+@onready var crowd_system := get_parent().get_node("CrowdSystem")
+
+var input: Vector2
+var is_playing_priority_anim := false 
+var can_take_damage := true
 
 var menu_ui_scene = preload("res://scenes/menuMascaras.tscn")
 var menu_instancia: CanvasLayer
 
 @export var invincibility_time := 0.5
-var can_take_damage := true
-
-@onready var crowd_system := get_parent().get_node("CrowdSystem")
 
 signal damaged
 
 func _ready() -> void:
-	MaskController.mask_changed.connect(
-		crowd_system.set_mask
-	)
+	MaskController.mask_changed.connect(crowd_system.set_mask)
+	MaskController.mask_changed.connect(_on_mask_changed)
+	
 	if menu_ui_scene:
 		menu_instancia = menu_ui_scene.instantiate()
 		get_tree().root.add_child.call_deferred(menu_instancia)
@@ -39,19 +39,19 @@ func get_input():
 	input.y = Input.get_action_strength("move_down") - Input.get_action_strength("move_up")
 	return input.normalized()
 
-func _physics_process(delta : float):
+func _physics_process(delta: float):
 	var playerInput = get_input() 
 	
 	velocity = lerp(velocity, playerInput * SPEED, delta * ACELL)
-	
 	move_and_slide()
 	
-	if velocity.length() > 2.0:
-		if sprite.animation != "run":
-			sprite.play("run")
-	else:
-		if sprite.animation != "idle":
-			sprite.play("idle")
+	if not is_playing_priority_anim:
+		if velocity.length() > 2.0:
+			if sprite.animation != "run":
+				sprite.play("run")
+		else:
+			if sprite.animation != "idle":
+				sprite.play("idle")
 
 	if velocity.length() > 5.0:
 		var target_rotation := velocity.angle() + PI / 2
@@ -61,30 +61,30 @@ func _physics_process(delta : float):
 			delta * ROTATION_SPEED
 		)
 
+func _on_mask_changed(_mask_id: int):
+	is_playing_priority_anim = true
+	
+	sprite.frame = 0
+	sprite.play("mask")
+	flash_white()
+	
+	if not sprite.animation_finished.is_connected(_on_priority_anim_finished):
+		sprite.animation_finished.connect(_on_priority_anim_finished, CONNECT_ONE_SHOT)
+	
+	if not sprite.animation_finished.is_connected(_on_priority_anim_finished):
+		sprite.animation_finished.connect(_on_priority_anim_finished, CONNECT_ONE_SHOT)
 
-func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("mask_populismo"):
-		MaskController.equip_mask(MaskController.MaskType.POPULISMO)
-
-	if Input.is_action_just_pressed("mask_polarizacao"):
-		MaskController.equip_mask(MaskController.MaskType.POLARIZACAO)
-
-	if Input.is_action_just_pressed("mask_tecnica"):
-		MaskController.equip_mask(MaskController.MaskType.TECNICA)
+func _on_priority_anim_finished():
+	is_playing_priority_anim = false
 
 func take_damage():
 	if not can_take_damage:
 		return
 
-	# Reduz a vida no controlador global
 	GameController.vidas -= 1
 	flash_white()
-	print("Player tomou dano. Vidas: ", GameController.vidas)
-
-	# Verifica se morreu
+	
 	if GameController.vidas <= 0:
-		print("Morreu saporra")
-		# Chama a função de morrer que vamos criar no GameController
 		GameController.morrer("vida_0") 
 		return
 
@@ -94,15 +94,15 @@ func take_damage():
 	await get_tree().create_timer(invincibility_time).timeout
 	can_take_damage = true
 
-	
-
-	await get_tree().create_timer(invincibility_time).timeout
-	can_take_damage = true
-
-
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	if area.get_parent() is CharacterBody2D:
 		take_damage()
+
+func flash_white():
+	if flash_material:
+		flash_material.set_shader_parameter("flash_strength", 1.0)
+		var tween := create_tween()
+		tween.tween_property(flash_material, "shader_parameter/flash_strength", 0.0, 0.4)
 
 func abrir_menu():
 	if menu_instancia:
@@ -115,17 +115,3 @@ func fechar_menu():
 		menu_instancia.visible = false
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		Engine.time_scale = 1.0
-
-func flash_white():
-	flash_material.set_shader_parameter("flash_strength", 1.0)
-
-	var tween := create_tween()
-	tween.tween_property(
-		flash_material,
-		"shader_parameter/flash_strength",
-		0.0,
-		0.4
-	)
-
-func _on_button_sair_pressed() -> void:
-	pass # Replace with function body.

@@ -6,6 +6,7 @@ var causa_da_morte : String = "" # Para saber qual manchete mostrar
 
 signal etica_alterada(value)
 
+
 var votos_atuais : int = 0
 signal votos_alterados(nova_qtd) # Avisa quando a quantidade muda
 

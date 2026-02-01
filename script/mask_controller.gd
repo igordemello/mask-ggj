@@ -2,6 +2,7 @@ extends Node
 
 @export var ethics_cost := 5
 @export var ethics_recover_rate := 1.0
+signal mask_changed(mask: int)
 
 enum MaskType {
 	NONE,
@@ -15,7 +16,6 @@ enum MaskType {
 var current_mask := MaskType.NONE
 var ethics_timer := 0.0
 
-signal mask_changed(mask)
 
 
 func equip_mask(mask: int):
@@ -27,8 +27,6 @@ func equip_mask(mask: int):
 
 	GameController.etica_gastar(ethics_cost)
 	current_mask = mask
-	
-	print("trocou de mascata nessa prr :" + str(current_mask))
 	
 	emit_signal("mask_changed", mask)
 	

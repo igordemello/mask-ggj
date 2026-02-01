@@ -90,9 +90,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_f1ej7")
 }],
-"loop": true,
+"loop": false,
 "name": &"mask",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -126,9 +126,10 @@ material = SubResource("ShaderMaterial_dqkch")
 position = Vector2(-4.7683716e-07, -8.940697e-08)
 scale = Vector2(0.38071895, 0.32843137)
 sprite_frames = SubResource("SpriteFrames_xo3ru")
-animation = &"idle"
+animation = &"mask"
 autoplay = "idle"
-frame_progress = 0.90891576
+frame = 3
+frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1022108422]
 zoom = Vector2(1.685, 1.685)
