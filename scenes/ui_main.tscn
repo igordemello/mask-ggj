@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://bf13ko46pwk0o" path="res://script/barras.gd" id="1_e7ikl"]
 [ext_resource type="Texture2D" uid="uid://b3apjff05jw3y" path="res://Sprites/Vida/vidaCheia.png" id="1_pir4a"]
 [ext_resource type="Texture2D" uid="uid://c0olmm7usp4p5" path="res://Sprites/Vida/vidaVazia.png" id="2_e7ikl"]
-[ext_resource type="Texture2D" uid="uid://ds8s0pvlv3yqe" path="res://Sprites/Barras/eticaBoa.png" id="4_d8d52"]
+[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaBoa.png" id="4_d8d52"]
 [ext_resource type="Script" uid="uid://ce0c867h0npe0" path="res://script/barra_etica.gd" id="4_ex8sk"]
-[ext_resource type="Texture2D" uid="uid://lyjwx31q3gel" path="res://Sprites/Barras/barracheiadotamanhocerto.png" id="5_06xbh"]
-[ext_resource type="Texture2D" uid="uid://br7lu2yox1xy" path="res://Sprites/Barras/eticaNeutra.png" id="5_lbldr"]
-[ext_resource type="Texture2D" uid="uid://bqlo1suxj2o8e" path="res://Sprites/Barras/eticaRuim.png" id="6_lbldr"]
-[ext_resource type="Texture2D" uid="uid://75cg0o4cseda" path="res://Sprites/Barras/eticaVazia.png" id="7_vsg1l"]
+[ext_resource type="Texture2D" path="res://Sprites/Barras/barracheiadotamanhocerto.png" id="5_06xbh"]
+[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaNeutra.png" id="5_lbldr"]
+[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaRuim.png" id="6_lbldr"]
+[ext_resource type="Texture2D" path="res://Sprites/Barras/eticaVazia.png" id="7_vsg1l"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7u1yg"]
 animations = [{

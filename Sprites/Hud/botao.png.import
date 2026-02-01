@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://75cg0o4cseda"
-path="res://.godot/imported/eticaVazia.png-b63f541e14f496c8684bf6c03a97447e.ctex"
+uid="uid://dxbxkea38gkbv"
+path="res://.godot/imported/botao.png-00296e9799876eba2880f2ad7ab0d6dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Hud/eticaVazia.png"
-dest_files=["res://.godot/imported/eticaVazia.png-b63f541e14f496c8684bf6c03a97447e.ctex"]
+source_file="res://Sprites/Hud/botao.png"
+dest_files=["res://.godot/imported/botao.png-00296e9799876eba2880f2ad7ab0d6dc.ctex"]
 
 [params]
 
